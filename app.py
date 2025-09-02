@@ -13,6 +13,11 @@ def Filtrado_de_correos():
 if __name__ == '__main__':
     app.run(debug=True)
 
+@app.route('/PagLugo')
+def pag_lugo():
+    return render_template('PagLugo.html')
+
+
 
 
 
