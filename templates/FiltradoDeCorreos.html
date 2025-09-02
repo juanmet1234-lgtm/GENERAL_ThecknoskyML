@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styleOscar.css">
+
+    <style>
+      /* Hover efecto de cambio de imagen */
+      .image-container {
+        position: relative;
+        width: 100%;
+        max-width: 300px; /* puedes ajustar */
+        margin: auto;
+      }
+
+      .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transition: opacity 0.6s ease-in-out;
+      }
+
+      .image-container img.hover-img {
+        opacity: 0;
+      }
+
+      .image-container:hover img.hover-img {
+        opacity: 1;
+      }
+
+      .image-container:hover img:first-child {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-light">
+    
+    <div class="container mt-5">
+      <div class="row justify-content-center g-4">
+        
+        <!-- Primer Card -->
+        <div class="col-md-6">
+          <div class="card shadow-lg text-center h-100">
+            <div class="card-body">
+              <h3 class="card-title mb-3">ML para Filtrado de correos electrónicos</h3>
+              <p class="card-text">
+                El correo electrónico es una de las principales herramientas de comunicación en la actualidad, 
+                pero también es uno de los medios más utilizados para difundir spam, phishing y software malicioso.
+                Ante este panorama, el Machine Learning (ML) se ha consolidado como una estrategia clave para mejorar 
+                la seguridad y eficiencia en el manejo del correo electrónico. A diferencia de los métodos tradicionales
+                basados en reglas y palabras clave, los modelos de ML aprenden de grandes volúmenes de datos y son capaces
+                de adaptarse continuamente a nuevas amenazas.
+
+                Entre los algoritmos más usados en este campo se encuentra el Naïve Bayes, que clasifica los correos según 
+                la probabilidad de que sean legítimos o spam, así como las Máquinas de Soporte Vectorial y las redes
+                neuronales, que logran identificar patrones más complejos. Gracias a estas técnicas, no solo se bloquean 
+                mensajes no deseados, sino que también se detectan intentos de phishing mediante el análisis de enlaces, 
+                patrones lingüísticos y características ocultas que resultan difíciles de reconocer para métodos 
+                tradicionales.
+
+                Además de la seguridad, el ML contribuye a la organización de la bandeja de entrada, clasificando 
+                automáticamente los mensajes según su relevancia. Esto permite al usuario centrarse en lo realmente 
+                importante, mientras que el sistema aprende de sus decisiones y se ajusta con el tiempo. En síntesis, 
+                el Machine Learning no solo fortalece la protección contra ciberamenazas, sino que también optimiza la 
+                experiencia de comunicación digital en un entorno cada vez más dinámico.
+              </p>
+              <img src="{{ url_for('static', filename='imagenes/Img1.png') }}" 
+                   class="img-fluid rounded mt-3" alt="ML">
+            </div>
+          </div>
+        </div>
+
+        <!-- Segundo Card -->
+        <div class="col-md-6">
+          <div class="card shadow-lg text-center h-100">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Aplicaciones del Filtrado</h3>
+              <p class="card-text">
+                El filtrado de correos electrónicos con Machine Learning tiene aplicaciones clave en la seguridad digital. 
+                Su uso más común es la detección y bloqueo de spam, lo que evita la saturación de las bandejas de entrada 
+                con mensajes irrelevantes o no deseados. Además, contribuye a identificar intentos de phishing mediante el 
+                análisis de patrones en el texto, enlaces y remitentes, protegiendo así a los usuarios frente a fraudes, 
+                robo de datos y suplantaciones de identidad.
+
+                Más allá de la seguridad, este filtrado también se emplea para organizar los correos de manera más eficiente. 
+                Muchos sistemas clasifican automáticamente los mensajes en categorías como “principal”, “promociones” o “social”, 
+                aprendiendo del comportamiento del usuario para priorizar la información más relevante. De esta forma, el Machine 
+                Learning no solo fortalece la protección frente a amenazas, sino que también mejora la productividad al facilitar
+                una gestión más clara y ordenada de la comunicación digital.
+
+              </p>
+              <img src="{{ url_for('static', filename='imagenes/Spam.png') }}" 
+                   class="img-fluid rounded mt-3" alt="Aplicaciones ML">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tercer Card: Imagen con hover -->
+        <div class="col-md-6">
+          <div class="card shadow-lg text-center h-100">
+            <div class="card-body">
+              <h3 class="card-title mb-3">(Pasar el cursor :))</h3>
+              <p class="card-text">
+              </p>
+              <div class="image-container mt-3">
+                <!-- Imagen base -->
+                <img src="{{ url_for('static', filename='imagenes/ML2.jpg') }}" 
+                     alt="Imagen base" 
+                     class="rounded shadow">
+
+                <!-- Imagen hover -->
+                <img src="{{ url_for('static', filename='imagenes/Corr1.jpg') }}" 
+                     alt="Imagen hover" 
+                     class="rounded shadow hover-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cuarto Card: Referencias -->
+        <div class="col-md-6">
+          <div class="card shadow-lg text-start h-100">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Referencias</h3>
+              <ul class="card-text">
+                <li>Almeida, T. A., Hidalgo, J. M., & Yamakami, A. (2011). Contributions to the study of SMS spam filtering...</li>
+                <li>Metsis, V., Androutsopoulos, I., & Paliouras, G. (2006). Spam filtering with Naive Bayes...</li>
+                <li>Sahami, M., Dumais, S., Heckerman, D., & Horvitz, E. (1998). A Bayesian approach to filtering junk e-mail...</li>
+                <li>Goodfellow, I., Bengio, Y., & Courville, A. (2016). <i>Deep Learning</i>. MIT Press.</li>
+                <li>Guzella, T. S., & Caminhas, W. M. (2009). A review of machine learning approaches to spam filtering...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+         
