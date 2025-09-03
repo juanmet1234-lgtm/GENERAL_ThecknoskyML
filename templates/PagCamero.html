@@ -3,32 +3,104 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Subpágina con Card</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/RF.css">
+    <title>Reconocimiento Facial</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          crossorigin="anonymous">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='RF.css') }}">
   </head>
-  <body class="bg-light">
-    <div class="container py-5">
-      <div class="row justify-content-center">
+  <body class="bg-dark text-light">
+    <div class="container mt-5">
+      <div class="row g-4"><!-- g-4 da espacio entre cards -->
+
+        <!-- Card 1 -->
         <div class="col-md-6">
-          <!-- Card -->
-          <div class="card shadow-lg">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Imagen del card">
-            <div class="card-body">
-              <h5 class="card-title">RECONOCIMIENTO FACIAL</h5>
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h5 class="card-title fw-bold">RECONOCIMIENTO FACIAL</h5>
+              <p class="card-text"><strong>¿QUÉ ES?</strong></p>
               <p class="card-text">
-                ¿QUE ES?
+                El reconocimiento facial es una tecnología biométrica que permite identificar o verificar la identidad de una persona a través de sus rasgos faciales.
+Utiliza algoritmos de inteligencia artificial para analizar patrones únicos del rostro, como:
+
+La distancia entre los ojos.
+
+La forma de la nariz y pómulos.
+
+El contorno de labios y mentón.
+
+La profundidad de las cuencas oculares.
+
+Estos datos se transforman en una huella facial digital, que luego se compara con registros en bases de datos para confirmar la identidad.
               </p>
-              <p class="card-text">
-                El reconocimiento facial es una aplicación de Machine Learning que permite identificar o verificar la identidad de una persona a partir de sus características faciales. Se utiliza en seguridad, autenticación de usuarios y análisis de imágenes en tiempo real.
-              </p>
-              <p class="card-text">
-                Incluso puedes poner <strong>otra imagen</strong> dentro del cuerpo del card:
-              </p>
-              <img src="https://via.placeholder.com/400x200" class="img-fluid rounded" alt="Otra imagen">
+              <img src="{{ url_for('static', filename='Imagenes/QUE_ES.jpeg') }}" 
+                   class="d-block mx-auto mt-3 rounded" 
+                   style="width: 200px; height: auto;" 
+                   alt="Qué es">
             </div>
           </div>
-          <!-- Fin Card -->
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h4 class="fw-semibold">Aplicaciones</h4>
+<p>El reconocimiento facial se usa en:</p>
+<ul>
+  <li><strong>Seguridad:</strong> control de accesos en aeropuertos, oficinas y dispositivos.</li>
+  <li><strong>Dispositivos electrónicos:</strong> desbloqueo de teléfonos, laptops y sistemas inteligentes.</li>
+  <li><strong>Comercio:</strong> sistemas de pago sin contacto que validan la identidad.</li>
+  <li><strong>Redes sociales:</strong> etiquetado automático en fotos y videos.</li>
+  <li><strong>Marketing:</strong> análisis de emociones y reconocimiento de clientes frecuentes.</li>
+</ul>
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h4 class="fw-semibold">Ventajas</h4>
+<p>Este sistema ofrece beneficios importantes frente a otros métodos de autenticación:</p>
+<ul>
+  <li><strong>Rápido y cómodo:</strong> no requiere contacto físico.</li>
+  <li><strong>No invasivo:</strong> basta con mirar al dispositivo.</li>
+  <li><strong>Difícil de falsificar:</strong> gracias a los algoritmos actuales.</li>
+  <li><strong>Alta eficiencia:</strong> útil en lugares con gran flujo de personas (ej. estadios, aeropuertos).</li>
+  <li><strong>Integración sencilla:</strong> compatible con sistemas de seguridad existentes.</li>
+</ul>
+              </p>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h4 class="fw-semibold">Desafíos</h4>
+<p>A pesar de sus ventajas, también presenta retos:</p>
+<ul>
+  <li><strong>Privacidad:</strong> almacenamiento masivo de rostros genera preocupaciones.</li>
+  <li><strong>Sesgo algorítmico:</strong> menor precisión con ciertos grupos de población.</li>
+  <li><strong>Errores de identificación:</strong> posibilidad de falsos positivos o negativos.</li>
+  <li><strong>Aspectos legales y éticos:</strong> muchos países carecen de regulaciones claras.</li>
+  <li><strong>Dependencia tecnológica:</strong> requiere cámaras de calidad y bases de datos bien entrenadas.</li>
+</ul>
+              </p>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
