@@ -24,6 +24,13 @@ if __name__ == '__main__':
 
 
 
+# Ruta para la página de Camero
+@app.route('/PagCamero')
+def pag_camero():
+    return render_template('PagCamero.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
