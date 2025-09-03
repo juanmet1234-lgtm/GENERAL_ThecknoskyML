@@ -1,0 +1,74 @@
+body {
+    background: url("/static/Imagenes/Fon_FB.jpg") no-repeat center center fixed;
+    background-size: cover;  
+    color: #dce3f5; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #3a7bd5;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #6fb1fc;
+}
+
+/* Header */
+header {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: rgba(10, 10, 70, 0.70); 
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+
+}
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #6fb1fc; 
+}
+header p {
+    font-size: 1.2rem;
+    color: #9fbbe9; 
+}
+
+/* Cards */
+
+.card {
+    background: rgba(10, 20, 40, 0.8); 
+    border: 1px solid rgba(58, 123, 213, 0.4);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(20, 40, 80, 0.9);
+}
+.card-title {
+    color: #3a7bd5; 
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.card p, .card li {
+    color: #dce3f5;
+}
+
+/* Botones */
+.btn-custom {
+    background-color: #1c3d72; 
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom:hover {
+    background-color: #3a7bd5; 
+    transform: scale(1.05);
+}
