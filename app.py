@@ -11,6 +11,8 @@ def home():
 if __name__ == '__main__':
     app.run(debug=True)
 
-
+@app.route('/PagCamero')
+def pag_camero():
+    return render_template('PagCamero.html')
 
 

@@ -1,0 +1,14 @@
+body {
+  background-image: url("/static/imagenes/RF_FONDO.jpg"); /* tu imagen */
+  background-size: cover;       /* la imagen cubre toda la pantalla */
+  background-position: center;  /* la centra */
+  background-repeat: no-repeat; /* evita que se repita */
+}
+.card {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.051); 
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(8px);
+    color: white; 
+    transition: transform 0.2s ease-in-out;
+}
