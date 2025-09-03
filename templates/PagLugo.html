@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ML LUGO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleLug.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    
+
+</head>
+
+    <body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">
+            Casos de Uso-Machine learning En los -videojuegos- 
+        </h1>
+        <br>
+        <br>
+        <br>
+        <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h5 class="card-title">DLSS</h5>
+                <p class="card-text">En los videojuegos La tecnologia del DLSS se basa en el uso de 
+                    redes neuronales para la reescalar imagenes en tiempo real, es decir, el videojuego renderiza
+                    un fotograma a un a resolucion menor, por ejemplo a 1080p, y luego usando una red neuronal reescala 
+                    esta imagen a 4k, lo cual nos permite ver el videojuego en una resolucion mas alta y con mayor calidad.
+                    sin apenas usar recursos graficos nativos de la tarjeta grafica. Ademas NVIDIA ha desarrollado una 
+                    tecnologia llamada DLSS Frame Generation (DLSS4 en las tarjetas RTX serie 40 de NVIDIA) La cual Genera
+                    fotogramas a base de red neuronal en tiempo real, lo que puede aumentar la cantidad de FPS en gran medida
+                    sin usar gran cantidad de recursos de hardware. basicamente se aprovecha el machine learning de el software en NVIDIA.
+                    Cabe resaltar que otras empresas an desarrollado sus propias tecniligias de reescalado de imagenes en tiempo real
+                    como AMD con su FSR. (OpenAI, 2023), (Ros, 2023).        
+                </p>
+            </div>
+            </div>
+        </div>
+            <div class="col-md-6">
+                <div class= cor>
+                <div class="col-md-6 text-center align-self-center"></div>
+                    <div class="image-container">
+                    <img src="{{ url_for('static', filename='Imagenes/Nvidia.png') }}" alt="Imagen 1">
+                    <img src="{{ url_for('static', filename='Imagenes/DLSScomp.jpg') }}" alt="Imagen 2">
+                </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+        <div>
+            <div class="card-body text-center">
+                <button class="btn btn-custom mb-3" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#infoExtra" 
+                        aria-expanded="false" 
+                        aria-controls="infoExtra"
+                        id="toggleInfoBtn">
+                    Más información
+                </button>
+                <div class="collapse" id="infoExtra">
+                    <div class="card card-body extra-text">
+                        NVIDIA-DLSS funciona utilizando modelos de aprendizaje automático para escalar imágenes
+                        de baja resolución en tiempo real. Estos modelos están entrenados con imágenes de alta resolución, lo que les
+                        permite generar visuales de mayor calidad mientras mantienen una tasa de fotogramas estable..
+                        Ademas, NVIDIA DLSS es importante para los videojuegos porque permite a los jugadores disfrutar de resoluciones
+                        más altas y una mejor calidad de imagen sin sacrificar el rendimiento. Al usar inteligencia artificial (IA)
+                        para escalar imágenes de baja resolución, DLSS ofrece una experiencia de juego más inmersiva y visualmente
+                        impresionante. (NVIDIA® DLSS: ¿Qué Es y Cómo Funciona? | Lenovo Colombia, s.f.).
+                        Ahora hablando de la creacion de fotogramas, La Generación de Fotogramas DLSS genera hasta tres fotogramas adicionales
+                        por cada fotograma renderizado tradicionalmente, trabajando el unison con el conjunto completo de
+                        tecnologías DLSS para multiplicar las frecuencias de cuadro hasta 8 veces con respecto al renderizado
+                        tradicional por fuerza bruta. Esta enorme mejora del rendimiento en las tarjetas gráficas GeForce RTX 5090 
+                        permite disfrutar de impresionantes juegos 4K a 240 FPS totalmente ray tracing. (Lin, H., & Burnes, A, 2025).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+<footer class="site-footer">
+    <div class="container">
+        <!-- 🔹 Primera fila con marca, navegación y redes -->
+        <div class="row align-items-center gy-3">
+            <!-- Parte izquierda -->
+            <div class="col-md-4 text-center text-md-start">
+                <a href="{{ url_for('home') }}" class="footer-brand">Tecknosky ML</a>
+                <div class="footer-copy">
+                    <span id="footer-year"></span>  Hecho con love y DLSS ( Y HTML/CSS ;3)
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <nav class="footer-nav">
+                    <a href="{{ url_for('home') }}">Inicio</a>
+                    <a href="{{ url_for('pag_lugo') }}">DLSS</a>
+                    <a href="mailto:juanmet12@hotmail.com">Contacto</a>
+                </nav>
+            </div>
+
+
+            <div class="col-md-4 text-center text-md-end">
+                <div class="footer-social">
+                    <a target="_blank" href="https://www.instagram.com/juanpalugo4488?igsh=MXJ5enNtcHZiYmIxdg==" aria-label="Instagram" title="Instagram">
+                
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm4.5 3.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2A3 3 0 1 0 12 15a3 3 0 0 0 0-6Zm5.8-2.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+                    </a>
+                    <a target="_blank" href="https://github.com/juanmet1234-lgtm" aria-label="GitHub" title="GitHub">
+                    
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-2c-3.3.7-4-1.6-4-1.6-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.6 1.9 2.6 2.5.6-.5 1.2-.8 1.7-1-2.7-.3-5.5-1.4-5.5-6.2 0-1.4.5-2.6 1.2-3.5-.1-.3-.5-1.7.1-3.5 0 0 1-.3 3.4 1.3a11.5 11.5 0 0 1 6.2 0C18 6.5 19 6.8 19 6.8c.6 1.8.3 3.2.1 3.5.8.9 1.2 2.1 1.2 3.5 0 4.8-2.8 5.9-5.5 6.2.6.5 1 .1 1.9 1v2.8c0 .3.2.6.8.5A12 12 0 0 0 12 .5z"/></svg>
+                    </a>
+                    <a target="_blank" href="https://open.spotify.com/user/rlkndhs3rmfqvzpzarwkwaatp?si=00b66d7ce37b4477" aria-label="Spotify" title="Spotify">
+                    
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 1 0 0 24A12 12 0 0 0 12 0Zm5.5 17.5c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.5-.9-.3.1-.7-.1-.8-.5s.1-.7.5-.8c4.1-1 7.6-.7 10.4 1.1.3.2.4.6.3.9Zm1.3-3c-.3.4-.8.5-1.2.2-2.9-1.8-7.3-2.3-10.7-1.2-.4.1-.9-.1-1-.5s.1-.9.5-1c3.9-1.3 8.8-.7 12.1 1.4.4.3.5.8.3 1.1Zm.1-3.2c-3.4-2-9.1-2.2-12.4-1.2-.5.2-1-.1-1.2-.6s.1-1 .6-1.2c3.9-1.1 10.2-.9 14.2 1.4.5.3.7 1 .4 1.5s-1 .7-1.6.3Z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row mt-3">
+            <div class="col-md-6 text-start">
+                <div class=".card" style="font-size: 0.85rem;">
+                    <div class="card-body p-2">
+                        <h2 class="texth6">
+                            Referencias
+                        </h2>
+                        <ul class="list-unstyled mb-0">
+                            <li>-Lin, H., & Burnes, A. (s/f). NVIDIA DLSS 4 Introduce la Generación de
+                                Fotogramas Múltiples & Mejoras para Todas las Tecnologías DLSS. NVIDIA.
+                                Recuperado el 2 de septiembre de 2025, de https://www.nvidia.com/es-la/geforce/news/dlss4-multi-frame-generation-ai-innovations
+                                (Lin, H., & Burnes, A, 2025)</li>
+                            <li>-NVIDIA® DLSS: ¿qué es y cómo funciona? | Lenovo Colombia. (s.f.).
+                                https://www.lenovo.com/co/es/glosario/nvidia-dlss/?orgRef=https%253A%252F%252Fwww.google.com%252F&srsltid=AfmBOoqXf3r-8C4dQySi0tK3W_rftUmHAJX_Dn6y78JqZVZuO5lHHSMv
+                                (NVIDIA® DLSS: Lenovo Colombia, s.f.)</li>
+                            <li>-Ros, I. (2023, 17 enero). Qué es NVIDIA DLSS 3, cómo funciona y qué tarjetas gráficas lo soportan. MuyComputer. 
+                                https://www.muycomputer.com/2023/01/17/que-es-nvidia-dlss-3-como-funciona-y-que-tarjetas-graficas-lo-soportan
+                                (Ros, 2023) </li>
+                            <li>-OpenAI. (2025). ChatGPT (Versión GPT-5) [Modelo de lenguaje AI]. OpenAI. https://chat.openai.com/ </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" aria-label="Volver arriba">↑</button>
+</footer>
+
+
+
+    <button class="back-to-top" aria-label="Volver arriba">↑</button>
+    </footer>
+
+</html>

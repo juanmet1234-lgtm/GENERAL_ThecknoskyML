@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraudes Bancarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styleSantiago.css">
+</head>
+<body>
+    <div class="container mt-5">
+
+        <!-- TITULO -->
+        <header class="text-center mb-5">
+            <h1 class="fw-bold">Detección de Fraudes Bancarios con ML Supervisado</h1>
+        </header>
+
+        <!--  SECCIÓN 1 -->
+        <section class="mb-5">
+            <div class="card p-4 shadow-lg">
+                <h3 class="card-title">¿Qué es el Fraude Bancario?</h3>
+                <p>
+                    El fraude bancario es cualquier actividad ilegal que busca obtener un beneficio económico mediante 
+                    engaños en productos o servicios financieros. Puede incluir robo de identidad, uso no autorizado de 
+                    tarjetas, transferencias fraudulentas, creación de cuentas falsas o manipulación de transacciones 
+                    electrónicas. Este tipo de delitos afecta tanto a las entidades financieras como a los clientes, 
+                    generando pérdidas millonarias a nivel global.
+                </p>
+            </div>
+        </section>
+
+        <!--  SECCIÓN 2  -->
+        <section class="row g-4 mb-5">
+            <!-- Card Izquierda -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-lg h-100">
+                    <h3 class="card-title">¿Qué es el Machine Learning Supervisado?</h3>
+
+                    <p>
+                        El machine learning supervisado es una rama de la inteligencia artificial en la que los modelos 
+                        aprenden a partir de datos etiquetados (es decir, ejemplos con entradas y salidas conocidas). 
+                        El algoritmo analiza estos datos históricos, identifica patrones y luego puede predecir resultados 
+                        sobre datos nuevos. En el caso del fraude bancario, el aprendizaje supervisado se entrena con ejemplos 
+                        de transacciones legítimas y fraudulentas para detectar comportamientos sospechosos en tiempo real.
+                    </p>
+
+                    <img src="/static/Imagenes/ML_FB.jpg" alt="Machine Learning" class="card-img">
+                </div>
+            </div>
+            <!-- Card Derecha -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-lg h-100">
+                    <h3 class="card-title">¿Cómo se aplica en la detección de fraudes?</h3>
+                    <p>
+                        El machine learning supervisado se aplica en la detección de fraudes bancarios entrenando modelos con 
+                        ejemplos históricos de transacciones legítimas y fraudulentas.
+                    </p>
+
+                        <p>El proceso típico incluye:<br> 
+                        <b> - Recolección de datos: </b> Millones de transacciones pasadas con etiquetas de “fraude” o “no fraude”. <br>
+                        <b> - Entrenamiento del modelo: </b> Algoritmos como árboles de decisión, random forest, gradient boosting o redes neuronales aprenden a diferenciar patrones normales de sospechosos.<br>
+                        <b> - Análisis en tiempo real: </b> El sistema evalúa cada transacción nueva y asigna un puntaje de riesgo.<br>
+                        <b> - Acciones automáticas: </b> si el puntaje supera cierto umbral, se bloquea la operación, se pide autenticación adicional o se envía a revisión manual.<br>
+                        <b> - Retroalimentación continua: </b> los fraudes confirmados se reincorporan al dataset para mejorar el modelo.
+                    </p>
+
+                        <p> 
+                        Este ciclo permite detectar actividades anómalas de forma rápida y eficiente, reduciendo pérdidas 
+                        económicas y fortaleciendo la confianza en los servicios financieros.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3 -->
+        <section class="row g-4 mb-5">
+            <!-- Card Izquierda -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-lg h-100">
+                    <h3 class="card-title">Casos de Éxito</h3>
+                    <ul>
+                        <li><b>Detección de fraudes en tarjetas de crédito: </b> Bancos globales usan modelos de ML para 
+                            identificar compras inusuales y bloquearlas antes de que se ejecuten.</li>
+
+                        <li><b>Prevención de lavado de dinero (AML): </b> Plataformas aplican ML supervisado para monitorear 
+                            transacciones complejas y detectar redes de fraude.</li>
+
+                        <li><b>Pruebas de concepto con AutoML (caso Nae): </b> Implementación de modelos automáticos que 
+                            redujeron falsos positivos en fraudes bancarios.</li>
+
+                        <li><b>Sistemas de monitoreo en tiempo real: </b> Instituciones en América Latina, en coordinación 
+                            con organismos como GAFILAT, aplican ML supervisado para cumplir normas antilavado y mejorar la 
+                            seguridad.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card Derecha -->
+            <div class="col-md-6">
+                <div class="card p-4 shadow-lg h-100">
+                    <h3 class="card-title">Beneficios del ML Supervisado</h3>
+                    <ul>
+                        <li>Mayor precisión en la detección de fraudes respecto a métodos tradicionales.</li>
+                        <li>Automatización en el análisis de millones de transacciones en segundos.</li>
+                        <li>Reducción de costos al disminuir falsos positivos y optimizar revisiones manuales.</li>
+                        <li>Adaptabilidad frente a nuevos patrones de fraude mediante actualización del modelo.</li>
+                        <li>Mejora de la experiencia del cliente, al evitar bloqueos injustificados.</li>
+                        <li>Cumplimiento normativo al facilitar la detección temprana de operaciones sospechosas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--  SECCIÓN 4 -->
+        <section class="mb-5">
+            <div class="card p-4 shadow-lg">
+                <h3 class="card-title">Desafíos y Limitaciones</h3>
+                
+                <div class="card-content">
+                    <div class="card-text">
+                    <ul>
+                        <li>Cambio constante de patrones de fraude (concept drift), lo que exige actualizar los modelos con frecuencia.</li>
+                        <li>Desbalance de datos, ya que las transacciones fraudulentas son muy pocas en comparación con las legítimas.</li>
+                        <li>Necesidad de datos de calidad y bien etiquetados, algo difícil de conseguir en entornos reales.</li>
+                        <li>Explicabilidad limitada, lo que complica justificar las decisiones ante reguladores o auditores.</li>
+                        <li>Costo de implementación en infraestructura y personal especializado.</li>
+                        <li>Riesgo de sesgos en los datos, que pueden afectar la equidad del sistema.</li>
+                    </ul>
+                    </div>
+
+                    <div class="card-img-container">
+                    <img src="/static/Imagenes/Img1FB_FB.jpg" alt="Desafíos ML" class="card-img-right">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--  SECCIÓN 5 -->
+        <section class="mb-5">
+            <div class="card p-4 shadow-lg">
+                <h3 class="card-title">Referencias</h3>
+
+                <ul>
+                    <li>
+                        Camacho Aguilera, D. S. (2023). <i>Detección de fraude financiero utilizando Python – PyDay La Paz 2023</i> [Video]. YouTube. 
+                        <a href="https://youtu.be/ALbcdqzM1IE?si=xSuq9ob1t8v2sdcO" target="_blank">https://youtu.be/ALbcdqzM1IE?si=xSuq9ob1t8v2sdcO</a>
+                    </li>
+
+                    <li>
+                        Nae. (s. f.). <i>Prueba de concepto: Machine Learning para reducir el fraude bancario</i>. Nae. 
+                        <a href="https://nae.global/es/prueba-de-concepto-machine-learning-para-reducir-el-fraude-bancario" target="_blank">https://nae.global/es/prueba-de-concepto-machine-learning-para-reducir-el-fraude-bancario</a>
+                    </li>
+
+                    <li>
+                        Universidad EAN. (2020). <i>Machine learning para la detección de fraudes financieros</i>. Repositorio Universidad EAN. 
+                        <a href="https://repository.universidadean.edu.co/server/api/core/bitstreams/f055e77b-109e-4047-a1ba-9e7cec92c6bc/content" target="_blank">https://repository.universidadean.edu.co/.../content</a>
+                    </li>
+
+                    <li>
+                        Zhu, Y., & colegas. (2025). <i>Financial fraud detection using machine learning methods: A comprehensive review</i>. <i>Scientific Reports, 15</i>, 15783. 
+                        <a href="https://www.nature.com/articles/s41598-025-15783-2" target="_blank">https://www.nature.com/articles/s41598-025-15783-2</a>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- BOTÓN DE REGRESO  -->
+        <div class="text-center mt-5">
+            <a href="/" class="btn btn-outline-primary">⬅ Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>
+
