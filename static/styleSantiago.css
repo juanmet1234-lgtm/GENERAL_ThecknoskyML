@@ -59,6 +59,43 @@ header p {
     color: #dce3f5;
 }
 
+.card-img {
+    width: 100%;          
+    max-width: 300px;     
+    display: block;      
+    margin: 0 auto 1rem;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+}
+
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
+    gap: 20px;
+}
+
+.card-text {
+    flex: 2;
+}
+
+.card-img-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+}
+
+.card-img-right {
+    max-width: 70%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+
+
 /* Botones */
 .btn-custom {
     background-color: #1c3d72; 
