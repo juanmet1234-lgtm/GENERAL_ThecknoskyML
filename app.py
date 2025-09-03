@@ -14,13 +14,14 @@ def Filtrado_de_correos():
 def FraudesBancarios():
     return render_template('FraudesBancarios.html')
 
+@app.route('/PagLugo')
+def pag_lugo():
+    return render_template('PagLugo.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-@app.route('/PagLugo')
-def pag_lugo():
-    return render_template('PagLugo.html')
+
 
 
 
