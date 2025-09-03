@@ -17,75 +17,13 @@ body {
 
 /* Cards */
 .card {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #ffffff; 
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.051); 
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(8px);
+    color: white; 
+    transition: transform 0.2s ease-in-out;
 }
-
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Títulos */
-.card-title, .fw-semibold {
-  color: #0fadec; 
-  font-weight: 700;
-}
-
-/* Listas */
-ul li {
-  margin-bottom: 8px;
-  position: relative;
-  padding-left: 20px;
-  transition: transform 0.2s ease;
-  color: #ffffff;
-}
-
-ul li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  color: #00d4ff; 
-  font-weight: bold;
-}
-
-ul li:hover {
-  transform: translateX(5px);
-  color: #ffffff; 
-}
-
-/* Imagen dentro de cards */
-.card img {
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.card img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.2);
-}
-
-/* Animación */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top left, rgba(0,212,255,0.2), transparent 40%),
-              radial-gradient(circle at bottom right, rgba(0,119,255,0.2), transparent 40%);
-  z-index: -1;
-  animation: pulse 6s infinite alternate;
-}
-
 @keyframes pulse {
   0% { opacity: 0.4; }
   100% { opacity: 0.8; }
