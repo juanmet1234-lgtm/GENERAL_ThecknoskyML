@@ -10,6 +10,11 @@ def home():
 def Filtrado_de_correos():
     return render_template('FiltradoDeCorreos.html')
 
+@app.route('/FraudesBancarios')
+def FraudesBancarios():
+    return render_template('FraudesBancarios.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
