@@ -18,13 +18,6 @@ def FraudesBancarios():
 def pag_lugo():
     return render_template('PagLugo.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
-
-# Ruta para la página de Camero
 @app.route('/PagCamero')
 def pag_camero():
     return render_template('PagCamero.html')
