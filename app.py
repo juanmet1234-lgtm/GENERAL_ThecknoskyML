@@ -28,7 +28,6 @@ def FraudesBancarios():
 def pag_lugo():
     return render_template('PagLugo.html')
 
-
 @app.route('/PagCamero')
 def pag_camero():
     return render_template('PagCamero.html')
