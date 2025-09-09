@@ -1,0 +1,70 @@
+/* Layout pantalla dividida */
+.split-screen {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Sección izquierda */
+.section-left {
+    flex: 1;
+    background: url("/static/Imagenes/Inves.jpg") no-repeat center center/cover;
+    color: white;
+    padding: 40px;
+    transition: flex 0.5s ease;
+}
+
+/* Sección derecha */
+.section-right {
+    flex: 1;
+    background: url("/static/Imagenes/PY.jpg") no-repeat center center/cover;
+    color: white;
+    padding: 40px;
+    transition: flex 0.5s ease;
+}
+
+/* Hover efecto (se expande la sección al pasar el mouse) */
+.section-left:hover, .section-right:hover {
+    flex: 1.2;
+}
+
+/* Botón personalizado */
+.btn-custom {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ffffff; 
+    background: transparent;
+    color: #ffffff;
+    font-weight: bold;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease, padding 0.3s ease; 
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; 
+    width: 100%;
+    height: 100%;
+    background: #d22fe0;
+    z-index: -1;
+    transition: left 0.4s ease;
+}
+
+.btn-custom:hover {
+    color: white; 
+    padding: 12px 24px;
+    border: 2px solid #ffffff; 
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-custom:hover::before {
+    left: 0; 
+}
+
