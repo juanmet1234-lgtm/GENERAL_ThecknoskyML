@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reconocimiento Facial</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+          crossorigin="anonymous">
+
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='Investigacion.css') }}">
+  </head>
+  <body class="bg-dark text-light">
+    <div class="container mt-5">
+
+     
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-6">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h5 class="card-title fw-bold">REGRESION LINEAL</h5>
+              <p class="card-text"><strong>¿QUÉ ES?</strong></p>
+              <p class="card-text">
+                La regresión lineal es una técnica estadística y de aprendizaje automático utilizada para modelar la relación entre una variable dependiente (también llamada variable de respuesta) y una o más variables independientes (también llamadas predictores o explicativas). Su objetivo principal es encontrar una línea recta que mejor se ajuste a los datos observados, permitiendo predecir el valor de la variable dependiente a partir de los valores de las independientes.
+              </p>
+              <img src="{{ url_for('static', filename='Imagenes/RL_EJEMPLO.png') }}" 
+                   class="d-block mx-auto mt-3 rounded" 
+                   style="width: 200px; height: auto;" 
+                   alt="Qué es">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h4 class="fw-semibold">Aplicaciones</h4>
+              <p>FUNDAMENTO MATEMATICO:</p>
+              <p>En su forma más simple (regresión lineal simple), el modelo se expresa como:</p>
+
+              <p class="text-center">
+                𝑌 = 𝛽₀ + 𝛽₁𝑋 + 𝜀
+              </p>
+
+              <ul>
+                <li><em>Y</em>: variable dependiente</li>
+                <li><em>X</em>: variable independiente</li>
+                <li>𝛽₀: intercepto (valor de <em>Y</em> cuando <em>X</em> = 0)</li>
+                <li>𝛽₁: pendiente (cambio en <em>Y</em> por unidad de cambio en <em>X</em>)</li>
+                <li>𝜀: término de error (diferencia entre el valor observado y el predicho)</li>
+              </ul>
+
+              <p>En regresión lineal múltiple, se incluyen varias variables independientes:</p>
+
+              <p class="text-center">
+                𝑌 = 𝛽₀ + 𝛽₁𝑋₁ + 𝛽₂𝑋₂ + ⋯ + 𝛽ₙ𝑋ₙ + 𝜀
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="row g-4 mt-3">
+        <div class="col-md-8 offset-md-2">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h4 class="fw-semibold">REFERENCIAS</h4>
+              <p>
+                <li>James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R (Vol. 103). Springer. 
+<li>
+                Montgomery, D. C., Peck, E. A., & Vining, G. G. (2012). Introduction to Linear Regression Analysis (5th ed.). Wiley.
+</li>
+              </p>
+              
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

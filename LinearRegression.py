@@ -16,18 +16,3 @@ model_energy.fit(X_energy, y_energy)
 def calculateEnergy(peso, minutos):
     result = model_energy.predict([[peso, minutos]])[0][0]
     return round(result, 2)
-
-# ---- Modelo notas ----
-data_grade = {
-    "Study Hours": [10, 15, 12, 8, 14, 5, 16, 7, 11, 13, 9, 4, 18, 3, 17, 6, 14, 2, 20, 1],
-    "Final Grade": [3.8, 4.2, 3.6, 3, 4.5, 2.5, 4.8, 2.8, 3.7, 4, 3.2, 2.2, 5, 1.8, 4.9, 2.7, 4.4, 1.5, 5, 1]
-}
-df_grade = pd.DataFrame(data_grade)
-X_grade = df_grade[["Study Hours"]]
-y_grade = df_grade[["Final Grade"]]
-model_grade = LinearRegression()
-model_grade.fit(X_grade, y_grade)
-
-def calculateGrade(hours):
-    result = model_grade.predict([[hours]])[0][0]
-    return round(result, 2)
