@@ -29,9 +29,16 @@
                     <h3><strong>{{ result }} kcal</strong></h3>
                 </div>
             {% endif %}
+
+            {% if plot_url %}
+                <div class="text-center mt-4">
+                    <h5>Gráfico de la regresión lineal múltiple:</h5>
+                    <img src="data:image/png;base64,{{ plot_url }}" 
+                         alt="Gráfico de regresión" 
+                         class="img-fluid rounded shadow">
+                </div>
+            {% endif %}
         </div>
     </div>
-
-    
 </body>
 </html>
