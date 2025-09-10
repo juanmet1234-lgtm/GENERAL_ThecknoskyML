@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template, request  
-from LinearRegression import calculateCalories
+from LinearRegression import calculateEnergy
 
 app = Flask(__name__)
 
@@ -37,6 +37,11 @@ def pag_camero():
 @app.route('/MunuLR')
 def Menu_LR():
     return render_template('MenuLR.html')
+@app.route('/Energy', methods=['GET', 'POST'])
+
+@app.route('/Investigacion')
+def Investigacion():
+    return render_template('Investigacion.html')
 
 @app.route('/LR', methods=['GET', 'POST'])
 def Lr():
@@ -44,9 +49,8 @@ def Lr():
     if request.method == 'POST':
         peso = float(request.form['peso'])
         minutos = float(request.form['minutos'])
-        calculateResult = calculateCalories(peso, minutos)
+        calculateResult = calculateEnergy(peso, minutos)
     return render_template('LR.html', result=calculateResult)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

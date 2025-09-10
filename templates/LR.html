@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Predicción de Gasto Energético</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleA4_Practica.css') }}">
 </head>
 <body>
-    <h1>Calculadora de Gasto Energético</h1>
-    
-        <form method="POST" action="{{ url_for('Lr') }}">
-            <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" name="peso" required><br><br>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg p-4 rounded-4 form-card">
+            <h1 class="text-center mb-4">Calculadora de Gasto Energético</h1>
             
-            <label for="minutos">Minutos de ejercicio:</label>
-            <input type="number" id="minutos" name="minutos" required><br><br>
-            
-            <button type="submit">Calcular</button>
-        </form>
+            <form method="POST" action="/LR">
+                <div class="mb-3">
+                    <label for="peso" class="form-label">Peso corporal (kg):</label>
+                    <input type="number" id="peso" name="peso" step="0.1" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="minutos" class="form-label">Minutos de ejercicio:</label>
+                    <input type="number" id="minutos" name="minutos" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Calcular</button>
+            </form>
 
-    {% if result is not none %}
-        <h2>El gasto energético estimado es: {{ result }} kcal</h2>
-    {% endif %}
+            {% if result is not none %}
+                <div class="alert alert-success text-center mt-4">
+                    <h5>El gasto energético estimado es:</h5>
+                    <h3><strong>{{ result }} kcal</strong></h3>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    
 </body>
 </html>
