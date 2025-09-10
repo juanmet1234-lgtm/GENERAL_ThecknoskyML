@@ -39,6 +39,10 @@ def Menu_LR():
     return render_template('MenuLR.html')
 @app.route('/Energy', methods=['GET', 'POST'])
 
+@app.route('/Investigacion')
+def Investigacion():
+    return render_template('Investigacion.html')
+
 @app.route('/LR', methods=['GET', 'POST'])
 def Lr():
     calculateResult = None
