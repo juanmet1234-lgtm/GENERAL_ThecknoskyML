@@ -68,6 +68,108 @@
       </div>
 
       
+      <!-- Card 3 -->
+       <div class="row g-4 mt-3">
+        <div class="col-md-12">
+          <div class="card shadow-lg h-100">
+            <div class="card-body text-start">
+              <h3 class="fw-semibold">SUPUESTOS HABITUALES </h3>
+              <div class="grid-container">
+                <!-- Cuadrante 1 -->
+                <div class="grid-item">
+                  <h5 class="fw-semibold">LINEALIDAD </h5>
+                    <p class="card-text">
+                      El valor esperado de la variable dependiente 𝑌 es una función lineal de la variable independiente 𝑋; 
+                      es decir, se asume una relación directamente proporcional (más allá del término constante y el coeficiente)
+                    </p>
+                    <p class="card-text" ><strong> ¿Cómo verificar?</strong>
+                      <li class="card-text" > Gráfica de dispersión entre 𝑋 y 𝑌.</li>
+                      <li class="card-text" > <strong>Diagrama de residuos vs valores ajustados:</strong>  Debe formarse un “nube” sin patrones evidentes </li>
+                    </p>
+
+                    <p class="card-text">
+                      <strong>Violaciones:</strong>
+                        Se observaría curvatura o patrones sistemáticos en los residuos. <br>
+                      <strong>Soluciones:</strong>
+                        Aplicar transformaciones (logarítmicas, cuadráticas), o emplear modelos no lineales.
+                    </p>
+                    <img src="{{ url_for('static', filename='Imagenes/Linealidad_SpH.png') }}" 
+                      class="d-block mx-auto mt-3 rounded" 
+                      style="width: auto; height: 200px;">
+                </div>
+
+                <!-- Cuadrante 2 -->
+                <div class="grid-item">
+                  <h5 class="fw-semibold">INDEPENDENCIA </h5>
+                    <p class="card-text">
+                      Los errores (residuales) deben ser independientes entre sí; especialmente crítico en datos temporales o correlacionados
+                    </p>
+                    <p class="card-text" ><strong> ¿Cómo verificar?</strong>
+                      <li class="card-text" > Gráfica de residuos ordenados en función del tiempo. </li>
+                      <li class="card-text" > Test de Durbin–Watson para detectar autocorrelación. </li>
+                    </p>
+
+                    <p class="card-text">
+                      <strong>Violaciones:</strong>
+                        Residuales correlacionados secuencialmente. <br>
+                      <strong>Soluciones:</strong>
+                        Incluir variables temporales, utilizar modelos de series temporales, o ajustar el modelo.
+                    </p>
+                    <img src="{{ url_for('static', filename='Imagenes/Independencia_SpH.png') }}" 
+                      class="d-block mx-auto mt-3 rounded" 
+                      style="width: auto; height: 200px;">
+                </div>
+
+                <!-- Cuadrante 3 -->
+                <div class="grid-item">
+                  <h5 class="fw-semibold">HOMOCEDASTICIDAD </h5>
+                    <p class="card-text">
+                      La varianza de los errores debe ser constante en todos los niveles de 𝑋; si no, hablamos de heterocedasticidad.
+                    </p>
+                    <p class="card-text" ><strong> ¿Cómo verificar?</strong>
+                      <li class="card-text" > <strong>Residuals vs valores ajustados:</strong>  Se espera una distribución uniforme, sin forma de “cono” </li>
+                      <li class="card-text" > Pruebas estadísticas como Goldfeld-Quandt para evaluar diferencias en varianzas. </li>
+                    </p>
+
+                    <p class="card-text">
+                      <strong>Violaciones:</strong>
+                        Error con varianza creciente o decreciente. <br>
+                      <strong>Soluciones:</strong>
+                        Transformaciones (ej. logaritmo), estimación robusta, o modelos de regresión que consideren varianza variable.
+                    </p>
+                    <img src="{{ url_for('static', filename='Imagenes/Homocedasticidad_SpH.png') }}" 
+                      class="d-block mx-auto mt-3 rounded" 
+                      style="width: auto; height: 200px;">
+                </div>
+
+                <!-- Cuadrante 4 -->
+                <div class="grid-item">
+                  <h5 class="fw-semibold">NORMALIDAD DEL ERROR </h5>
+                    <p class="card-text">
+                      Los errores (residuales) deben seguir una distribución normal, especialmente importante para inferencias (intervalos de confianza, pruebas de hipótesis)                      
+                    </p>
+                    <p class="card-text" ><strong> ¿Cómo verificar?</strong>
+                      <li class="card-text" > Histograma o gráfico Q-Q de los residuos. Los puntos deben aproximarse a la línea recta. </li>
+                    </p>
+
+                    <p class="card-text">
+                      <strong>Violaciones:</strong>
+                        Residuos sesgados o con colas pesadas. <br>
+                      <strong>Soluciones:</strong>
+                        Transformaciones, pruebas no paramétricas, o métodos robustos.
+                    </p>
+                    <img src="{{ url_for('static', filename='Imagenes/Normalidad_SpH.png') }}" 
+                      class="d-block mx-auto mt-3 rounded" 
+                      style="width: auto; height: 200px;">
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Referencias -->
       <div class="row g-4 mt-3">
         <div class="col-md-8 offset-md-2">
           <div class="card shadow-lg h-100">
@@ -75,9 +177,12 @@
               <h4 class="fw-semibold">REFERENCIAS</h4>
               <p>
                 <li>James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An Introduction to Statistical Learning: with Applications in R (Vol. 103). Springer. 
-<li>
-                Montgomery, D. C., Peck, E. A., & Vining, G. G. (2012). Introduction to Linear Regression Analysis (5th ed.). Wiley.
-</li>
+                <li>Montgomery, D. C., Peck, E. A., & Vining, G. G. (2012). Introduction to Linear Regression Analysis (5th ed.). Wiley.
+                <li>Assumptions of the Simple Linear Regression Model – CFA, FRM, and Actuarial Exams Study Notes. (25 de febrero de 2021). AnalystPrep. Recuperado de<a href="https://analystprep-com.translate.goog/study-notes/cfa-level-2/assumptions-of-the-simple-linear-regression-model/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc">https://analystprep-com.translate.goog/study-notes/cfa-level-2/assumptions-of-the-simple-linear-regression-model/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc</a> 
+                <li>Regresión lineal simple: Supuestos. (s.f.). RPubs. Recuperado de <a href="https://rpubs.com/acastro/regresion_lineal_supuestos?utm_source=chatgpt.com">https://rpubs.com/acastro/regresion_lineal_supuestos?utm_source=chatgpt.com</a> 
+                <li>10 Diagnósticos parte I | Modelos de Regresión con R. (s.f.). fhernanb.github.io. Recuperado de <a href="https://fhernanb.github.io/libro_regresion/diag1.html">https://fhernanb.github.io/libro_regresion/diag1.html</a>
+
+                </li>
               </p>
               
               </ul>
