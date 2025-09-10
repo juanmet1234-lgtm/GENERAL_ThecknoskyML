@@ -2,19 +2,23 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Predicción de Nota</title>
+    <title>Predicción de Gasto Energético</title>
 </head>
 <body>
-    <h1>Predicción de Nota Final</h1>
+    <h1>Calculadora de Gasto Energético</h1>
     
-    <form method="POST" action="/LR">
-        <label for="hours">Horas de estudio:</label>
-        <input type="number" id="hours" name="hours" required>
-        <button type="submit">Calcular</button>
-    </form>
+        <form method="POST" action="{{ url_for('Lr') }}">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required><br><br>
+            
+            <label for="minutos">Minutos de ejercicio:</label>
+            <input type="number" id="minutos" name="minutos" required><br><br>
+            
+            <button type="submit">Calcular</button>
+        </form>
 
     {% if result is not none %}
-        <h2>La nota estimada es: {{ result }}</h2>
+        <h2>El gasto energético estimado es: {{ result }} kcal</h2>
     {% endif %}
 </body>
 </html>

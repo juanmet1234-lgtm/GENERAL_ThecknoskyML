@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template, request  
-from LinearRegression import calculateGrade
+from LinearRegression import calculateCalories
 
 app = Flask(__name__)
 
@@ -42,8 +42,9 @@ def Menu_LR():
 def Lr():
     calculateResult = None
     if request.method == 'POST':
-        hours = float(request.form['hours'])
-        calculateResult = calculateGrade(hours) 
+        peso = float(request.form['peso'])
+        minutos = float(request.form['minutos'])
+        calculateResult = calculateCalories(peso, minutos)
     return render_template('LR.html', result=calculateResult)
 
 
