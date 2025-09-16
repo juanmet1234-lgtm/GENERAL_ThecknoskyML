@@ -1,0 +1,36 @@
+/* Imagen de fondo para toda la página */
+body {
+    background: url("/static/Imagenes/Churn.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fafafab1;
+}
+
+/* Cards con fondo semi-transparente */
+.card {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.19);
+}
+
+
+pre {
+    font-size: 0.9rem;
+    white-space: pre-wrap; 
+}
+
+
+button.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+button.btn:hover {
+    transform: scale(1.05);
+}
+
+
+h1 {
+    font-weight: 700;
+    color: #fbfbfb; /* opcional: que resalte sobre la imagen */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
