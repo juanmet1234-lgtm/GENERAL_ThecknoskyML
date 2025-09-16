@@ -9,7 +9,7 @@
 /* Sección izquierda */
 .section-left {
     flex: 1;
-    background: url("/static/Imagenes/Inves.jpg") no-repeat center center/cover;
+    background: url("/static/Imagenes/investi.jpg") no-repeat center center/cover;
     color: white;
     padding: 40px;
     transition: flex 0.5s ease;
@@ -18,7 +18,7 @@
 /* Sección derecha */
 .section-right {
     flex: 1;
-    background: url("/static/Imagenes/PY.jpg") no-repeat center center/cover;
+    background: url("/static/Imagenes/pypy.jpg") no-repeat center center/cover;
     color: white;
     padding: 40px;
     transition: flex 0.5s ease;
@@ -29,41 +29,24 @@
     flex: 1.2;
 }
 
-/* Botón personalizado */
-.btn-custom {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #ffffff; 
-    background: transparent;
-    color: #ffffff;
-    font-weight: bold;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.3s ease, padding 0.3s ease; 
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+.title-link {
+    text-decoration: none; /* quitar subrayado */
+    color: white; /* texto blanco */
+    transition: transform 0.4s ease, color 0.4s ease;
 }
 
-.btn-custom::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%; 
-    width: 100%;
-    height: 100%;
-    background: #d22fe0;
-    z-index: -1;
-    transition: left 0.4s ease;
+.title-link:hover {
+    transform: scale(1.1); /* efecto de agrandar */
+    color: #e9934d; /* color amarillo suave al pasar el mouse */
 }
 
-.btn-custom:hover {
-    color: white; 
-    padding: 12px 24px;
-    border: 2px solid #ffffff; 
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+.title-link2 {
+    text-decoration: none; /* quitar subrayado */
+    color: white; /* texto blanco */
+    transition: transform 0.4s ease, color 0.4s ease;
 }
 
-.btn-custom:hover::before {
-    left: 0; 
+.title-link2:hover {
+    transform: scale(1.1); /* efecto de agrandar */
+    color: #9411eb; /* color amarillo suave al pasar el mouse */
 }
