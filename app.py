@@ -55,7 +55,7 @@ def Menurelo():
     return render_template('MenuReLo.html')
 
 
-@app.route('/Energy', methods=['GET', 'POST'])
+@app.route('/LR', methods=['GET', 'POST'])
 def Energy():
     energy = None
     plot_url = None
@@ -65,7 +65,7 @@ def Energy():
         energy = calculateEnergy(peso, minutos)
         plot_url = generate_energy_plot(peso, minutos)
 
-    return render_template('Energy.html', energy=energy, plot_url=plot_url)
+    return render_template('LR.html', energy=energy, plot_url=plot_url)
 
 
 @app.route('/Investigacion')
