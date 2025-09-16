@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Casos de Uso - ML Supervisado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styleMenuRelo.css">
+
+    <style>
+        .split-screen {
+            display: flex;
+            height: 100vh; /* ocupa toda la pantalla */
+        }
+        .section-left, .section-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer; /* para que parezca clicable */
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* quitar subrayado de enlace */
+            color: inherit; /* hereda color del texto */
+        }
+        .section-left:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+        .section-right:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-screen">
+
+        <!-- Sección izquierda como botón -->
+        <a href="{{ url_for('Investigacion') }}" class="section-left">
+            <h1 class="mb-3">INVESTIGACIONES</h1>
+            <p class="mb-4">Regrecion lineal</p>
+        </a>
+
+        <!-- Sección derecha como botón -->
+        <a href="{{ url_for('Lr') }}" class="section-right">
+            <h1 class="mb-3">PRACTICA</h1>
+            <p class="mb-4">Calculo de calorias quemadas</p>
+        </a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

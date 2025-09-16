@@ -32,6 +32,13 @@
         </div>
     </div>
 
+                {% if graph %}
+                <div class="text-center mt-4">
+                    <h5>Visualización del modelo:</h5>
+                    <img src="{{ graph }}" class="img-fluid rounded shadow">
+                </div>
+                {% endif %}
+
     
 </body>
 </html>
