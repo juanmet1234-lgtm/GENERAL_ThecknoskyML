@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request  
-from LinearRegression import calculateEnergy, plot_regression
+from LinearRegression import calculateEnergy, generate_energy_plot
 
 app = Flask(__name__)
 
@@ -34,9 +34,9 @@ def pag_camero():
 def Menu_LR():
     return render_template('MenuLR.html')
 
-@app.route('/MunuRelo')
+@app.route('/MunuReLo')
 def Menurelo():
-    return render_template('MenuRelo.html')
+    return render_template('MenuReLo.html')
 
 @app.route('/Energy', methods=['GET', 'POST'])
 def Energy():
@@ -56,7 +56,7 @@ def Lr():
         minutos = float(request.form['minutos'])
         calculateResult = calculateEnergy(peso, minutos)
         # generar el gráfico con los datos ingresados
-        plot_url = plot_regression(peso, minutos)
+        plot_url = generate_energy_plot(peso, minutos)
 
     return render_template('LR.html', result=calculateResult, plot_url=plot_url)
 

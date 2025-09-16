@@ -1,9 +1,8 @@
 import pandas as pd
-import matplotlib
-matplotlib.use('Agg')
+import numpy as np
 import matplotlib.pyplot as plt
-import io, base64
 from sklearn.linear_model import LinearRegression
+import io, base64
 
 # ---- Modelo gasto energético ----
 data_energy = {
@@ -13,6 +12,7 @@ data_energy = {
 }
 
 df_energy = pd.DataFrame(data_energy)
+
 X_energy = df_energy[["Peso (kg)", "Minutos de ejercicio"]]
 y_energy = df_energy[["Gasto energético (kcal)"]]
 
@@ -23,28 +23,42 @@ def calculateEnergy(peso, minutos):
     result = model_energy.predict([[peso, minutos]])[0][0]
     return round(result, 2)
 
-def plot_regression():
-    # Gráfico de dispersión
-    plt.figure(figsize=(6,4))
-    plt.scatter(df_energy["Minutos de ejercicio"], df_energy["Gasto energético (kcal)"], color="blue", label="Datos")
+def generate_energy_plot(peso=None, minutos=None):
+    X1 = df_energy["Peso (kg)"]
+    X2 = df_energy["Minutos de ejercicio"]
+    y = df_energy["Gasto energético (kcal)"]
 
-    # Línea de regresión (para un peso fijo, ej: 70 kg)
-    minutos_range = [[m, 70] for m in range(20, 90, 5)]
-    y_pred = model_energy.predict(minutos_range)
-    minutos_x = [m[0] for m in minutos_range]
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111, projection="3d")
 
-    plt.plot(minutos_x, y_pred, color="red", label="Regresión (peso=70kg)")
-    plt.xlabel("Minutos de ejercicio")
-    plt.ylabel("Gasto energético (kcal)")
-    plt.title("Regresión Lineal - Gasto Energético")
-    plt.legend()
+    # Puntos de entrenamiento
+    ax.scatter(X1, X2, y, color="blue", label="Datos de entrenamiento")
 
-    # Convertir a imagen base64
+    # Plano de regresión
+    x1_range = np.linspace(X1.min(), X1.max(), 20)
+    x2_range = np.linspace(X2.min(), X2.max(), 20)
+    x1_grid, x2_grid = np.meshgrid(x1_range, x2_range)
+    y_pred_grid = model_energy.predict(np.c_[x1_grid.ravel(), x2_grid.ravel()])
+    y_pred_grid = y_pred_grid.reshape(x1_grid.shape)
+
+    ax.plot_surface(x1_grid, x2_grid, y_pred_grid, color="red", alpha=0.5)
+
+    # Si el usuario ingresó valores → dibujar el punto
+    if peso is not None and minutos is not None:
+        y_pred = model_energy.predict([[peso, minutos]])[0][0]
+        ax.scatter(peso, minutos, y_pred, color="green", s=100, label="Tu predicción")
+
+    ax.set_xlabel("Peso (kg)")
+    ax.set_ylabel("Minutos de ejercicio")
+    ax.set_zlabel("Gasto energético (kcal)")
+    ax.set_title("Regresión lineal múltiple - Gasto energético")
+    ax.legend()
+
+    # Convertir a base64 para mostrar en HTML
     img = io.BytesIO()
-    plt.savefig(img, format="png", bbox_inches="tight")
+    plt.savefig(img, format='png')
     img.seek(0)
-    graph_url = base64.b64encode(img.getvalue()).decode()
-    plt.close()
-    return f"data:image/png;base64,{graph_url}"
-
+    plot_url = base64.b64encode(img.getvalue()).decode()
+    plt.close(fig)
+    return plot_url
 
