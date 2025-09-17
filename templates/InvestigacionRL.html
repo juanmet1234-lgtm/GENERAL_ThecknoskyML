@@ -28,6 +28,40 @@
               <img src="{{ url_for('static', filename='Imagenes/REGRESION_LOGISTICA.png') }}" 
                    class="d-block mx-auto mt-3 rounded" 
                    style="width: 200px; height: auto;" >
+                   
+              <div class="card-body text-start">
+                  <h5 class="card-title fw-bold">APLICACIONES</h5>
+                <p class="card-text">
+                  <li> <h6><strong>Medicina y salud:</strong></h6> </li>
+                    <p class="card-text">
+                      Predice si un paciente tiene o no una enfermedad según síntomas, edad y análisis. Asi como la estimación de la probabilidad de éxito o 
+                      fracaso de tratamientos médicos.
+                    </p>    
+                  <li> <h6><strong>Finanzas y economía:</strong></h6> </li>
+                    <p class="card-text">
+                      Evalúa el riesgo crediticio ya que predice si un cliente pagará o no un préstamo. Asi como la detección de transacciones sospechosas de fraude financiero.
+                    </p>  
+                  <li> <h6><strong>Marketing y Negocios:</strong></h6> </li>
+                    <p class="card-text">
+                      Calcula la probabilidad de compra de un cliente o su abandono del servicio (churn). Tambien puede segmentar clientes para campañas publicitarias personalizadas.
+                    </p> 
+                  <li> <h6><strong>Seguridad Informática:</strong></h6> </li>
+                    <p class="card-text">
+                      Clasifica correos como spam o no spam. E identifica accesos anómalos que podrían ser ataques o intrusiones.
+                    </p> 
+                  <li> <h6><strong>Ciencias Sociales:</strong></h6> </li>
+                    <p class="card-text">
+                      Predice comportamientos como votar por un candidato o adoptar conductas sociales. Tambien es capaz de analizar respuestas de encuestas y estudios poblacionales.
+                    </p> 
+                  <li> <h6><strong>Industria y Producción:</strong></h6> </li>
+                    <p class="card-text">
+                      Anticipa fallos en máquinas clasificando su estado: “funciona” o “no funciona”. Tambien determina si un producto es defectuoso o cumple con estándares de calidad.
+                    </p> 
+                  <img src="{{ url_for('static', filename='Imagenes/ML_Apliacativo.png') }}" 
+                   class="d-block mx-auto mt-3 rounded" 
+                   style="width: 200px; height: auto;" >
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -37,7 +71,59 @@
           <div class="card shadow-lg h-100">
             <div class="card-body text-start">
               <h4 class="fw-semibold">CONCEPTOS BASICOS</h4>
-              
+                <p class="card-text"><strong>1. DEFINICION DEL PROBLEMA:</strong><br>
+                  Debes tener una variable dependiente binaria (ejemplo: aprobado/reprobado, sí/no, 0/1). Asi como identificar las variables independientes 
+                  que podrían influir en el resultado.
+                </p>
+
+                <p class="card-text"><strong>2. VARIABLES:</strong><br>
+                  <strong>- Dependiente (Y):</strong> Categórica binaria. <br>
+                  <strong>- Independientes (X):</strong> Pueden ser numéricas o categóricas (si son categóricas, se transforman en variables dummy/one-hot). 
+                </p>
+                
+                <p class="card-text"><strong>3. MODELO LINEAL INCIAL:</strong><br></p>
+                  <img src="{{ url_for('static', filename='Imagenes/ML_INICAL.png') }}" 
+                    class="d-block mx-auto mt-3 rounded" 
+                    style="width: 200px; height: auto;" >
+                <p class="card-text"> donde <strong>Y</strong> es una combinación lineal de las variables.</p>
+
+                <p class="card-text"><strong>4. FUNCIÓN LOGÍSTICA (sigmoide):</strong><br>
+                  Convierte la salida lineal <strong>Y</strong> en una probabilidad entre 0 y 1:
+                </p>
+                <img src="{{ url_for('static', filename='Imagenes/ML_INICAL.png') }}" 
+                    class="d-block mx-auto mt-3 rounded" 
+                    style="width: 200px; height: auto;" >
+
+                <p class="card-text"><strong>5. UMBRAL DE DECISIÓN (threshold):</strong><br>
+                  Generalmente se usa 0.5<br>
+                  - Si P ≥ 0.5 → se predice clase 1.<br>
+                  - Si P < 0.5  → se predice clase 0.<br>
+                  Puede ajustarse según la importancia de falsos positivos/negativos.
+                </p>
+
+                <p class="card-text"><strong>6. ESTIMACION DE PARÁMETROS (b):</strong><br>
+                  Se usa el método de Máxima Verosimilitud (MLE) en lugar de mínimos cuadrados. Con el objetivo es encontrar 
+                  los coeficientes que maximizan la probabilidad de que el modelo prediga correctamente los datos observados.
+                </p>
+
+                <p class="card-text"><strong>7. FUNCIÓN DE COSTOS(Log-Loss o entropía cruzada):</strong><br>
+                  Mide qué tan bien se ajusta el modelo:<br>
+                </p>
+                <img src="{{ url_for('static', filename='Imagenes/ML_RegresionLogistica.jpg') }}" 
+                    class="d-block mx-auto mt-3 rounded" 
+                    style="width: 200px; height: auto;" >
+
+                <p class="card-text"><strong>8. INTERPRETACIÓN DE COEFICIENTES:</strong><br>
+                  Cada <strong>bi​</strong> representa el cambio en el log-odds de <strong>Y</strong> al variar <strong>Xi</strong>. Se interpreta en términos de probabilidades de ocurrencia.
+                </p>
+
+                <p class="card-text"><strong>9. EVALUACIÓN DEL MODELO:</strong><br>
+                  Se utilizan métricas de clasificación:<br>
+                  - Matriz de confusión<br>
+                  - Accuracy (precisión)<br>
+                  - Precision, Recall, F1-score<br>
+                  - Curva ROC y AUC
+                </p>
             </div>
           </div>
         </div>
@@ -50,12 +136,13 @@
             <div class="card-body text-start">
               <h4 class="fw-semibold">REFERENCIAS</h4>
               <p>
-                <li>Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). Applied logistic regression (3rd ed.). Wiley. https://doi.org/10.1002/9781118548387
-<li>
-               James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). An introduction to statistical learning: with applications in R and Python (2nd ed.). Springer. https://doi.org/10.1007/978-1-0716-1418-1
-</li>
+                <li>Hosmer, D. W., Lemeshow, S., & Sturdivant, R. X. (2013). Applied logistic regression (3rd ed.). Wiley. <a href="https://doi.org/10.1002/9781118548387">https://doi.org/10.1002/9781118548387</a>
+                <li>James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). An introduction to statistical learning: with applications in R and Python (2nd ed.). Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1" >https://doi.org/10.1007/978-1-0716-1418-1</a> 
+                <li>DATAtab. (s.f.). Regresión logística - explicación sencilla. Recuperado de <a href="https://numiqo.es/tutorial/logistic-regressio" > https://numiqo.es/tutorial/logistic-regressio</a>
+                <li>Gisbert Juárez, M. (s.f.). Regresión logística. Probabilidad y Estadística. Recuperado de <a href="https://www.probabilidadyestadistica.net/regresion-logistica/ " > https://www.probabilidadyestadistica.net/regresion-logistica/ </a>
+
+                </li>
               </p>
-              
               </ul>
             </div>
           </div>
