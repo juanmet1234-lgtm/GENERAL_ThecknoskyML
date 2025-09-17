@@ -123,6 +123,10 @@ def A5_practica():
         prob=prob
     )
 
+@app.route('/InvestigacionRL')
+def InvestigacionRL():
+    return render_template('InvestigacionRL.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
