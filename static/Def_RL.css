@@ -1,0 +1,66 @@
+
+body {
+  background-image: url("/static/imagenes/FONDO_RLOG.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  animation: fadeIn 1.5s ease-in-out;
+  min-height: 100vh;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Bordes sutiles */
+  border-radius: 20px;
+  backdrop-filter: blur(10px); /* efecto vidrio */
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+
+.card-title, h4 {
+  color: #ffdd57; /* Amarillo cálido */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+
+.card-text, li {
+  color: #f1f1f1;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+.card img {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+
+.card-body li {
+  margin-bottom: 8px;
+  list-style-type: square;
+}
+
+.container {
+  animation: fadeIn 1.5s ease-in-out;
+}
