@@ -122,6 +122,9 @@ def A5_practica():
         pred_result=pred_result,
         prob=prob
     )
+@app.route('/Menu_TiposClasificacion')
+def Menu_TiposClasificacion():
+    return render_template('Menu_TiposClasificacion.html')
 
 
 if __name__ == '__main__':
