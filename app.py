@@ -2,6 +2,12 @@ from flask import Flask, render_template, request
 import pandas as pd
 from LinearRegression import calculateEnergy, generate_energy_plot
 from Churn_Logistic import load_and_prepare, train_model, evaluate, predict_label
+import joblib
+
+# Cargar modelo y métricas de fraude
+fraude_data = joblib.load("fraude_model.pkl")
+fraude_model = fraude_data["model"]
+fraude_accuracy = fraude_data["metrics"]["accuracy"]
 
 app = Flask(__name__)
 
@@ -122,10 +128,64 @@ def A5_practica():
         pred_result=pred_result,
         prob=prob
     )
+    
+    
 @app.route('/Menu_TiposClasificacion')
 def Menu_TiposClasificacion():
     return render_template('Menu_TiposClasificacion.html')
 
+# ----------------------------
+# A7_practica - Detección de fraude
+# ----------------------------
+@app.route('/A7_practica', methods=['GET', 'POST'])
+def A7_practica():
+    prediction = None
+    probability = None
+    interpretation = None
+
+    if request.method == 'POST':
+        # Obtener datos del formulario
+        monto = float(request.form['monto'])
+        hora = int(request.form['hora'])
+        ubicacion = request.form['ubicacion']
+        dispositivo = request.form['dispositivo']
+        historial = int(request.form['historial'])
+        threshold = float(request.form['threshold']) if request.form['threshold'] else 0.5
+
+        # Crear DataFrame con una fila
+        input_data = pd.DataFrame([{
+            "Monto": monto,
+            "Hora": hora,
+            "Ubicación": ubicacion,
+            "Dispositivo": dispositivo,
+            "Historial": historial
+        }])
+
+        # Predecir directamente usando el pipeline entrenado
+        prob = fraude_model.predict_proba(input_data)[:, 1][0]
+
+
+        # Aplicar threshold
+        pred = "Sí" if prob >= threshold else "No"
+
+        # Interpretación del threshold
+        if threshold < 0.5:
+            interpretation = f"Con threshold={threshold} la sensibilidad aumenta, pero también los falsos positivos."
+        elif threshold > 0.5:
+            interpretation = f"Con threshold={threshold} la precisión aumenta, pero puedes perder algunos fraudes."
+        else:
+            interpretation = "Con threshold=0.5 se mantiene el balance entre sensibilidad y precisión."
+
+        prediction = pred
+        probability = round(prob, 4)
+
+    return render_template(
+        'A7_practica.html',
+        prediction=prediction,
+        probability=probability,
+        interpretation=interpretation,
+        fraude_accuracy=round(fraude_accuracy, 4)
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
