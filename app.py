@@ -61,6 +61,8 @@ def Menurelo():
     return render_template('MenuReLo.html')
 
 
+
+
 @app.route('/LR', methods=['GET', 'POST'])
 def Energy():
     energy = None
@@ -133,6 +135,10 @@ def A5_practica():
 @app.route('/Menu_TiposClasificacion')
 def Menu_TiposClasificacion():
     return render_template('Menu_TiposClasificacion.html')
+
+@app.route('/A7_Investigaciones')
+def A7Inv():
+    return render_template('A7_Investigaciones.html')
 
 # ----------------------------
 # A7_practica - Detección de fraude

@@ -1,0 +1,37 @@
+/* Quita márgenes y ocupa toda la pantalla */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del iframe */
+.iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Iframe ocupa toda la pantalla */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Título flotante */
+.titulo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: rgb(255, 251, 251);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgb(113, 209, 68);
+    z-index: 10;
+}
