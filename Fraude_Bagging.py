@@ -89,5 +89,14 @@ print("📊 Matriz de confusión guardada como confusion_matrix.png")
 # -------------------------------
 # 8. Guardar modelo entrenado
 # -------------------------------
-joblib.dump(model, "fraude_model.pkl")
-print("✅ Modelo de fraude guardado como fraude_model.pkl")
+
+metrics_fraude = {
+    "accuracy": accuracy,
+    "classification_report": report
+}
+
+joblib.dump({
+    "model": model,
+    "metrics": metrics_fraude
+}, "fraude_model.pkl")
+print("✅ Modelo y métricas guardados en fraude_model.pkl")

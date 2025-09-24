@@ -9,7 +9,7 @@
 <body class="bg-light">
 
 <div class="container py-5">
-    <h1 class="text-center mb-4">🔍 Detección de Fraude en Transacciones</h1>
+    <h1 class="text-center mb-4">Detección de Fraude en Transacciones</h1>
 
     <!-- Formulario -->
     <form method="POST" action="{{ url_for('A7_practica') }}" class="card p-4 shadow-sm">
@@ -65,8 +65,21 @@
         <p class="fs-5">Probabilidad: {{ probability }}</p>
         <p class="text-muted">{{ interpretation }}</p>
     </div>
-    {% endif %}
 
+    <!-- Métrica de exactitud (siempre visible o solo tras predicción) -->
+    <div class="mt-4 p-3 bg-info text-white rounded text-center">
+        <strong>Exactitud del modelo:</strong> {{ "{:.2%}".format(fraude_accuracy) }}
+    </div>
+    
+
+    <!-- Matriz de confusión -->
+    <div class="mt-4 p-4 bg-white shadow-sm rounded text-center">
+        <h3 class="mb-3">Matriz de Confusión</h3>
+        <img src="{{ url_for('static', filename='imagenes/CM_Fraudes.png') }}" 
+             alt="Matriz de Confusión" 
+             class="img-fluid border rounded">
+    </div>
+    {% endif %}
 </div>
 
 </body>

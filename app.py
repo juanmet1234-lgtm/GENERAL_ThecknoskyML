@@ -3,7 +3,11 @@ import pandas as pd
 from LinearRegression import calculateEnergy, generate_energy_plot
 from Churn_Logistic import load_and_prepare, train_model, evaluate, predict_label
 import joblib
-fraude_model = joblib.load("fraude_model.pkl")
+
+# Cargar modelo y métricas de fraude
+fraude_data = joblib.load("fraude_model.pkl")
+fraude_model = fraude_data["model"]
+fraude_accuracy = fraude_data["metrics"]["accuracy"]
 
 app = Flask(__name__)
 
@@ -179,7 +183,8 @@ def A7_practica():
         'A7_practica.html',
         prediction=prediction,
         probability=probability,
-        interpretation=interpretation
+        interpretation=interpretation,
+        fraude_accuracy=round(fraude_accuracy, 4)
     )
 
 if __name__ == '__main__':
