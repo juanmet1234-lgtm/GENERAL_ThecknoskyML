@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 # Cargar y preparar dataset
 # ----------------------------
 def load_and_prepare(path: str):
-    df = pd.read_csv(path)
+    df =pd.read_csv(path)
     df = pd.get_dummies(df, columns=["Tipo_dispositivo"], drop_first=True)
     X = df.drop("Churn", axis=1)
     y = df["Churn"]

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detección de Fraude</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <h1 class="text-center mb-4">Detección de Fraude en Transacciones</h1>
+
+    <!-- Formulario -->
+    <form method="POST" action="{{ url_for('A7_practica') }}" class="card p-4 shadow-sm">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="monto" class="form-label">Monto de la transacción</label>
+                <input type="number" step="0.01" class="form-control" name="monto" id="monto" required>
+            </div>
+            <div class="col-md-6">
+                <label for="hora" class="form-label">Hora (0-23)</label>
+                <input type="number" min="0" max="23" class="form-control" name="hora" id="hora" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="ubicacion" class="form-label">Ubicación</label>
+                <select class="form-select" name="ubicacion" id="ubicacion" required>
+                    <option value="Nacional">Nacional</option>
+                    <option value="Internacional">Internacional</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="dispositivo" class="form-label">Dispositivo usado</label>
+                <select class="form-select" name="dispositivo" id="dispositivo" required>
+                    <option value="PC">PC</option>
+                    <option value="Móvil">Móvil</option>
+                    <option value="Tablet">Tablet</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="historial" class="form-label">Historial de usuario (transacciones previas)</label>
+            <input type="number" class="form-control" name="historial" id="historial" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="threshold" class="form-label">Threshold (opcional, por defecto = 0.5)</label>
+            <input type="number" step="0.01" min="0" max="1" class="form-control" name="threshold" id="threshold" value="0.5">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Predecir</button>
+    </form>
+
+    <!-- Resultados -->
+    {% if prediction is not none %}
+    <div class="mt-5 p-4 bg-white shadow-sm rounded text-center">
+        <h2 class="mb-3">Resultado</h2>
+        <p class="fs-3">
+            <strong>Predicción:</strong> {{ prediction }}
+        </p>
+        <p class="fs-5">Probabilidad: {{ probability }}</p>
+        <p class="text-muted">{{ interpretation }}</p>
+    </div>
+
+    <!-- Métrica de exactitud (siempre visible o solo tras predicción) -->
+    <div class="mt-4 p-3 bg-info text-white rounded text-center">
+        <strong>Exactitud del modelo:</strong> {{ "{:.2%}".format(fraude_accuracy) }}
+    </div>
+    
+
+    <!-- Matriz de confusión -->
+    <div class="mt-4 p-4 bg-white shadow-sm rounded text-center">
+        <h3 class="mb-3">Matriz de Confusión</h3>
+        <img src="{{ url_for('static', filename='imagenes/CM_Fraudes.png') }}" 
+             alt="Matriz de Confusión" 
+             class="img-fluid border rounded">
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
