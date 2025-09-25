@@ -3,6 +3,8 @@ import pandas as pd
 from LinearRegression import calculateEnergy, generate_energy_plot
 from Churn_Logistic import load_and_prepare, train_model, evaluate, predict_label
 import joblib
+import matplotlib
+matplotlib.use('Agg')
 
 # Cargar modelo y métricas de fraude
 fraude_data = joblib.load("fraude_model.pkl")
@@ -135,25 +137,6 @@ def A5_practica():
 def InvestigacionRL():
     return render_template('InvestigacionRL.html')
 
-=======
-        # Interpretación del threshold
-        if threshold < 0.5:
-            interpretation = f"Con threshold={threshold} la sensibilidad aumenta, pero también los falsos positivos."
-        elif threshold > 0.5:
-            interpretation = f"Con threshold={threshold} la precisión aumenta, pero puedes perder algunos fraudes."
-        else:
-            interpretation = "Con threshold=0.5 se mantiene el balance entre sensibilidad y precisión."
-
-        prediction = pred
-        probability = round(prob, 4)
-
-    return render_template(
-        'A7_practica.html',
-        prediction=prediction,
-        probability=probability,
-        interpretation=interpretation,
-        fraude_accuracy=round(fraude_accuracy, 4)
-    )
     
 @app.route('/Menu_TiposClasificacion')
 def Menu_TiposClasificacion():
@@ -196,6 +179,25 @@ def A7_practica():
 
         # Aplicar threshold
         pred = "Sí" if prob >= threshold else "No"
+        
+        # Interpretación del threshold
+        if threshold < 0.5:
+            interpretation = f"Con threshold={threshold} la sensibilidad aumenta, pero también los falsos positivos."
+        elif threshold > 0.5:
+            interpretation = f"Con threshold={threshold} la precisión aumenta, pero puedes perder algunos fraudes."
+        else:
+            interpretation = "Con threshold=0.5 se mantiene el balance entre sensibilidad y precisión."
+
+        prediction = pred
+        probability = round(prob, 4)
+
+    return render_template(
+        'A7_practica.html',
+        prediction=prediction,
+        probability=probability,
+        interpretation=interpretation,
+        fraude_accuracy=round(fraude_accuracy, 4)
+    )
 
 
 if __name__ == '__main__':
