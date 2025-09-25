@@ -56,8 +56,8 @@ def Menu_LR():
     return render_template('MenuLR.html')
 
 
-@app.route('/MunuReLo')
-def Menurelo():
+@app.route('/MenuReLo')
+def MenuReLo():
     return render_template('MenuReLo.html')
 
 
