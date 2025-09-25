@@ -131,6 +131,29 @@ def A5_practica():
         prob=prob
     )
     
+@app.route('/InvestigacionRL')
+def InvestigacionRL():
+    return render_template('InvestigacionRL.html')
+
+=======
+        # Interpretación del threshold
+        if threshold < 0.5:
+            interpretation = f"Con threshold={threshold} la sensibilidad aumenta, pero también los falsos positivos."
+        elif threshold > 0.5:
+            interpretation = f"Con threshold={threshold} la precisión aumenta, pero puedes perder algunos fraudes."
+        else:
+            interpretation = "Con threshold=0.5 se mantiene el balance entre sensibilidad y precisión."
+
+        prediction = pred
+        probability = round(prob, 4)
+
+    return render_template(
+        'A7_practica.html',
+        prediction=prediction,
+        probability=probability,
+        interpretation=interpretation,
+        fraude_accuracy=round(fraude_accuracy, 4)
+    )
     
 @app.route('/Menu_TiposClasificacion')
 def Menu_TiposClasificacion():
@@ -174,24 +197,6 @@ def A7_practica():
         # Aplicar threshold
         pred = "Sí" if prob >= threshold else "No"
 
-        # Interpretación del threshold
-        if threshold < 0.5:
-            interpretation = f"Con threshold={threshold} la sensibilidad aumenta, pero también los falsos positivos."
-        elif threshold > 0.5:
-            interpretation = f"Con threshold={threshold} la precisión aumenta, pero puedes perder algunos fraudes."
-        else:
-            interpretation = "Con threshold=0.5 se mantiene el balance entre sensibilidad y precisión."
-
-        prediction = pred
-        probability = round(prob, 4)
-
-    return render_template(
-        'A7_practica.html',
-        prediction=prediction,
-        probability=probability,
-        interpretation=interpretation,
-        fraude_accuracy=round(fraude_accuracy, 4)
-    )
 
 if __name__ == '__main__':
     app.run(debug=True)
