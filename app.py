@@ -140,6 +140,18 @@ def Menu_TiposClasificacion():
 def A7Inv():
     return render_template('A7_Investigaciones.html')
 
+@app.route('/A12_ReinforcementLearning')
+def A12_ReinforcementLearning():
+    return render_template('A12_ReinforcementLearning.html')
+
+@app.route('/conceptos_reinforcement_learning')
+def conceptos_reinforcement_learning():
+    return render_template('conceptos_reinforcement_learning.html')
+
+@app.route('/practica_reinforcement_learning')
+def practica_reinforcement_learning():
+    return render_template('practica_reinforcement_learning.html')
+
 # ----------------------------
 # A7_practica - Detección de fraude
 # ----------------------------

@@ -13,37 +13,47 @@
     <!-- LADO IZQUIERDO: MENÚ -->
     <div class="sidebar">
         <div class="card shadow-lg">
-        <div class="card-body text-center">
-            <h5 class="card-title">ACTIVIDAD 03</h5>
-            <p class="card-text">ML SUPERVISADOS</p>
-            <a href="{{ url_for('MenuMLcasos') }}" class="btn btn-custom">ML CASOS Supervisados</a>
-        </div>
-        </div>
-
-        <div class="card shadow-lg">
-        <div class="card-body text-center">
-            <h5 class="card-title">ACTIVIDAD 04</h5>
-            <p class="card-text">RECONOCIMIENTO DE PATRONES</p>
-            <a href="{{ url_for('Menu_LR') }}" class="btn btn-custom">IR A ML</a>
-        </div>
-        </div>
-
-        <div class="card shadow-lg">
-        <div class="card-body text-center">
-            <h5 class="card-title">ACTIVIDAD 05</h5>
-            <p class="card-text">Regrecion Logistica</p>
-            <a href="{{ url_for('Menurelo') }}" class="btn btn-custom">Ir a la Reg. logística</a>
+            <div class="card-body text-center">
+                <h5 class="card-title">ACTIVIDAD 03</h5>
+                <p class="card-text">ML SUPERVISADOS</p>
+                <a href="{{ url_for('MenuMLcasos') }}" class="btn btn-custom">ML CASOS Supervisados</a>
             </div>
         </div>
 
         <div class="card shadow-lg">
-        <div class="card-body text-center">
-            <h5 class="card-title">ACTIVIDAD 06</h5>
-            <p class="card-text">Tipos de Clasificacion</p>
-            <a href="{{ url_for('Menu_TiposClasificacion') }}" class="btn btn-custom">Ir a Tipos de Clasificacion</a>
+            <div class="card-body text-center">
+                <h5 class="card-title">ACTIVIDAD 04</h5>
+                <p class="card-text">RECONOCIMIENTO DE PATRONES</p>
+                <a href="{{ url_for('Menu_LR') }}" class="btn btn-custom">IR A ML</a>
+            </div>
         </div>
+
+        <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h5 class="card-title">ACTIVIDAD 05</h5>
+                <p class="card-text">Regrecion Logistica</p>
+                <a href="{{ url_for('Menurelo') }}" class="btn btn-custom">Ir a la Reg. logística</a>
+            </div>
         </div>
-    </div>
+
+        <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h5 class="card-title">ACTIVIDAD 06</h5>
+                <p class="card-text">Tipos de Clasificacion</p>
+                <a href="{{ url_for('Menu_TiposClasificacion') }}" class="btn btn-custom">Ir a Tipos de Clasificacion</a>
+            </div>
+        </div>
+
+        <!-- TARJETA ACTIVIDAD 07 CORRECTAMENTE UBICADA -->
+        <div class="card shadow-lg">
+            <div class="card-body text-center">
+                <h5 class="card-title">ACTIVIDAD 07</h5>
+                <p class="card-text">Reinforcement Learning</p>
+                <a href="{{ url_for('A12_ReinforcementLearning') }}" class="btn btn-custom">Ir a Reinforcement learning</a>
+            </div>
+        </div>
+
+    </div> <!-- Cierra sidebar -->
 
     <!-- LADO DERECHO: TITULO + IMAGEN -->
     <div class="content">
@@ -52,7 +62,7 @@
         <img src="/static/Imagenes/EScudo.png" alt="Imagen grande">
     </div>
 
-    </div>
+    </div> <!-- main-layout -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
