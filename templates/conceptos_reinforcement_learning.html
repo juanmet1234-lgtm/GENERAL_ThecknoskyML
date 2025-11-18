@@ -24,50 +24,10 @@
         <div class="col-md-6">
             <div class="card shadow-lg">
             <div class="card-body text-center">
-                <h5 class="card-title">Aprendizaje no supervisado — flujo completo (entrada → resultados)</h5>
-                <p class="card-text">Entrada de datos
-
-                Recolección: datos crudos (tabulares, texto, imágenes, series temporales).
-
-                Preprocesado: limpieza (valores faltantes, outliers), normalización/estandarización (p. ej. z-score o Min-Max), codificación de categóricas (one-hot, embeddings), reducción de dimensionalidad si hace falta.
-
-                Representación / transformación
-
-                Selección de features relevantes o creación de features (feature engineering).
-
-                Opcional: aplicar PCA, t-SNE o UMAP para visualizar o reducir ruido.
-
-                Elección del método no supervisado
-
-                Agrupamiento (clustering), reducción de dimensión, detección de anomalías, asociación (rules), modelado generativo.
-
-                Entrenamiento / ejecución
-
-                Ejecutar el algoritmo sobre los datos ya preparados (p. ej. k-means, GMM, DBSCAN, PCA).
-
-                Ajustar hiperparámetros (k, eps/min_samples, número de componentes).
-
-                Evaluación interna
-
-                Métricas internas: silhouette, Davies–Bouldin, Calinski–Harabasz.
-
-                Visualización: scatterplots en 2D/3D tras PCA/t-SNE; heatmaps de distancias; dendrogramas.
-
-                Interpretación de resultados
-
-                Analizar centroides / perfiles por cluster (promedios de features por cluster).
-
-                Buscar características significativas por cluster (feature importance por diferencia media).
-
-                Validación externa si hay etiquetas parciales: ARI, NMI, F1.
-
-                Uso práctico
-
-                Segmentar clientes, detectar fraudes, agrupar documentos similares, compresión de datos, recomendación.
-
-                Iteración
-
-                Volver a preprocesar, cambiar features, probar otros algoritmos o ajustar hiperparámetros    
+                <h5 class="card-title">Definición general del Aprendizaje por Refuerzo (RL)</h5>
+                <p class="card-text">El aprendizaje por refuerzo es un paradigma de la inteligencia artificial en el que un agente aprende a tomar decisiones mediante interacción directa con un entorno, recibiendo recompensas según la calidad de sus acciones.
+                    El objetivo del agente es maximizar la recompensa acumulada a largo plazo aprendiendo una política óptima de comportamiento.
+                    El proceso es parecido al aprendizaje de un animal: prueba, recibe castigos o premios, y mejora su estrategia.
                 </p>
             </div>
             </div>
@@ -75,50 +35,11 @@
                 <div class="col-md-6">
             <div class="card shadow-lg">
             <div class="card-body text-center">
-                <h5 class="card-title"> Entrenamiento y evaluación de un agente RL</h5>
-                <p class="card-text">Proceso de entrenamiento
-
-                        Interacción en episodios: agente actúa, recoge trayectorias (s,a,r,s').
-
-                        Almacenamiento: (opcional) replay buffer para métodos off-policy (DQN).
-
-                        Actualizaciones periódicas: entrenar redes (política/valor) con minibatches de experiencias.
-
-                        Técnicas de estabilidad: target networks, clipping de gradientes, normalización de recompensas, advantage estimation (GAE).
-
-                        Hiperparámetros clave: tasa de aprendizaje 
-                        𝛼
-                        α, 
-                        𝛾
-                        γ, tamaño de batch, frecuencia de actualización, epsilon inicial y decay.
-
-                        Métricas y criterios de evaluación
-
-                        Recompensa media por episodio (mean episode return): principal métrica.
-
-                        Median/percentiles: para medir robustez (evitar que promedios engañen).
-
-                        Tasa de éxito: % episodios donde se alcanzó objetivo (p. ej. completar tarea).
-
-                        Sample efficiency: cuánto rendimiento se obtiene por unidad de experiencia (importante en entornos costosos).
-
-                        Estabilidad/convergencia: varianza de la recompensa durante entrenamiento.
-
-                        Regret acumulado (en problemas bandit o decisiones online).
-
-                        Generalización: desempeño en variantes del entorno no vistas (robustez).
-
-                        Políticas suavizadas: entropía de la política (para medir exploración).
-
-                        Métricas específicas de dominio: tiempo hasta alcanzar objetivo, coste operativo, etc.
-
-                        Validación y pruebas
-
-                        Evaluar con varios seeds aleatorios (semillas) y promediar.
-
-                        Test en entornos más difíciles o con ruido para ver robustez.
-
-                        Comparar contra baselines (random, heurístico, versiones previas).     
+                <h5 class="card-title"> Diferencias entre Aprendizaje Supervisado, No Supervisado y por Refuerzo</h5>
+                <p class="card-text">
+                    Supervisado = “Aprende lo que es correcto”.
+                    No supervisado = “Descubre patrones”.
+                    RL = “Aprende a actuar interactuando”.  
                 </p>
             </div>
             </div>
@@ -126,150 +47,32 @@
                 <div class="col-md-6">
             <div class="card shadow-lg">
             <div class="card-body text-center">
-                <h5 class="card-title">¿Qué es el Aprendizaje por Refuerzo?</h5>
-                <p class="card-text">A. Proceso general (ejemplo k-means)
-                    Entrada: matriz 
-                    𝑋
-                    ∈
-                    𝑅
-                    𝑛
-                    ×
-                    𝑑
-                    X∈R
-                    n×d
-                    (n muestras, d features), normalmente estandarizada.
+                <h5 class="card-title">Componentes principales del modelo RL</h5>
+                <p class="card-text">Agente
 
-                    Inicialización: elegir 
-                    𝑘
-                    k centroides iniciales (aleatorio, k-means++ para mejor convergencia).
+                    Quien toma decisiones y aprende.
 
-                    Asignación: cada punto se asigna al centroide más cercano (según distancia; normalmente Euclidiana).
+                    Entorno
 
-                    Actualización: recalcular cada centroide como la media de los puntos asignados.
+                    El mundo con el que interactúa el agente.
 
-                    Repetir: iterar asignación + actualización hasta convergencia (cambios pequeños o límite de iteraciones).
+                    Estados (S)
 
-                    Resultado: partición de los datos en k grupos; centroides representativos.
+                    Representación del entorno en un momento dado.
 
-                    B. Otras familias de métodos y cómo trabajan
+                    Acciones (A)
 
-                    Jerárquicos (agglom./divisivo): calculan distancias entre clusters y construyen un dendrograma; no requieren k a priori (puedes cortar dendrograma a la altura deseada).
+                    Movidas o decisiones posibles desde un estado.
 
-                    DBSCAN: define clusters como regiones densas; detecta automáticamente ruido; usa parámetros eps (radio) y min_samples.
+                    Recompensas (R)
 
-                    GMM (Gaussian Mixture Models): modelo probabilístico que ajusta una mezcla de gaussianas; cada punto tiene probabilidades de pertenecer a cada componente.
+                    Retroalimentación numérica que indica si la acción fue buena o mala.
 
-                    Spectral clustering: usa matriz de afinidad y descomposición espectral para agrupar formas complejas.
+                    Política (π)
 
-                    Algoritmos basados en densidad y basados en formas (OPTICS, Mean-Shift).
+                    Estrategia que usa el agente para decidir qué acción tomar en cada estado.
 
-                    C. ¿Cómo se selecciona el número de grupos 
-                    𝑘
-                    k?
-
-                    Métodos heurísticos
-
-                    Elbow method: trazar inercia (suma de squared distances dentro de clusters) vs k; buscar el “codo”.
-
-                    Silhouette score: media de silhouette para distintos k; elegir k con silhouette alto.
-
-                    Gap statistic: compara la inercia observada con la esperada bajo un modelo nulo.
-
-                    Criterios probabilísticos (para GMM)
-
-                    AIC / BIC: penalizan complejidad; escoger k que minimiza BIC/AIC.
-
-                    Validación externa: si tienes etiquetas parciales, usar ARI / NMI para elegir k.
-
-                    Consideraciones prácticas: interpretabilidad, costo computacional y propósito del análisis.
-
-                    D. ¿Cómo se miden las distancias?
-
-                    Euclidiana: distancia estándar 
-                    ∑
-                    (
-                    𝑥
-                    𝑖
-                    −
-                    𝑦
-                    𝑖
-                    )
-                    2
-                    ∑(x
-                    i
-                        ​
-
-                    −y
-                    i
-                        ​
-
-                    )
-                    2
-                        ​
-
-                    . Usada en k-means.
-
-                    Manhattan (L1): 
-                    ∑
-                    ∣
-                    𝑥
-                    𝑖
-                    −
-                    𝑦
-                    𝑖
-                    ∣
-                    ∑∣x
-                    i
-                        ​
-
-                    −y
-                    i
-                        ​
-
-                    ∣. Robusta a outliers en ciertos casos.
-
-                    Cosine: 
-                    1
-                    −
-                    𝑥
-                    ⋅
-                    𝑦
-                    ∥
-                    𝑥
-                    ∥
-                    ∥
-                    𝑦
-                    ∥
-                    1−
-                    ∥x∥∥y∥
-                    x⋅y
-                        ​
-
-                    . Útil para texto/TF-IDF (ángulos entre vectores).
-
-                    Mahalanobis: considera covarianza; útil cuando features están correlacionadas.
-
-                    Distancias basadas en densidad o afinidad: kernel-based, gaussian affinity.
-
-                    Elección depende de la naturaleza de las features (escala, correlación, esparsidad).
-
-                    E. ¿Cómo se interpretan los resultados?
-
-                    Perfil por cluster: calcular medias/medianas por feature, ver qué distingue cada cluster.
-
-                    Visualizaciones:
-
-                    scatter (PCA/t-SNE/UMAP),
-
-                    mapas de calor de correlaciones,
-
-                    centroid heatmaps.
-
-                    Etiquetado humano: asignar nombres descriptivos a clusters (p. ej. “clientes premium”, “baja actividad”).
-
-                    Validación: comprobar cohesión (intra-cluster) y separación (inter-cluster) con métricas (silhouette, Davies-Bouldin).
-
-                    Uso operativo: diseñar acciones (campañas, alertas) basadas en clusters.     
+                    Puede ser determinista o probabilística.
                 </p>
             </div>
             </div>
@@ -277,320 +80,62 @@
                 <div class="col-md-6">
             <div class="card shadow-lg">
             <div class="card-body text-center">
-                <h5 class="card-title">¿Aprendizaje por refuerzo (RL): proceso completo y roles</h5>
-                <p class="card-text">Componentes clave (definiciones)
+                <h5 class="card-title">Principios del ciclo de aprendizaje en RL</h5>
+                <p class="card-text">Exploración vs. Explotación
 
-                    Agente: toma decisiones (política).
+                    Exploración: probar acciones nuevas para descubrir mejores estrategias.
 
-                    Entorno (environment): todo lo externo al agente; responde a acciones y devuelve observaciones y recompensas.
+                    Explotación: usar el conocimiento actual para maximizar la recompensa inmediata.
+                    El dilema es equilibrar ambos.
 
-                    Estado 
-                    𝑠
-                    s: representación del entorno en un tiempo t (completo o parcial).
+                    Retorno acumulado (Return)
 
-                    Acción 
-                    𝑎
-                    a: decisión que toma el agente en un estado.
+                    La recompensa total esperada que el agente busca maximizar:
 
-                    Política 
-                    𝜋
-                    (
-                    𝑎
-                    ∣
-                    𝑠
-                    )
-                    π(a∣s): mapa (determinista o probabilístico) desde estados a acciones.
-
-                    Recompensa 
-                    𝑟
-                    r: señal escalar que indica calidad inmediata de una acción.
-
-                    Retorno / recompensa acumulada: 
-                    𝐺
-                    𝑡
-                    =
-                    ∑
-                    𝑘
-                    =
-                    0
-                    ∞
-                    𝛾
-                    𝑘
-                    𝑟
-                    𝑡
-                    +
-                    𝑘
+                    Gt=Rt+1+Rt+2+⋯
                     G
                     t
                         ​
 
-                    =∑
-                    k=0
-                    ∞
+                    =R
+                    t+1
                         ​
 
-                    γ
-                    k
-                    r
-                    t+k
+                    +R
+                    t+2
                         ​
 
-                    con factor de descuento 
-                    0
-                    ≤
-                    𝛾
-                    ≤
-                    1
-                    0≤γ≤1.
+                    +⋯
+                    Descuento temporal (γ)
 
-                    Función valor: 
-                    𝑉
-                    𝜋
-                    (
-                    𝑠
-                    )
-                    V
-                    π
-                    (s) valor esperado de seguir 
-                    𝜋
-                    π desde 
-                    𝑠
-                    s.
-                    Action-value: 
-                    𝑄
-                    𝜋
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    Q
-                    π
-                    (s,a).
+                    Parámetro que determina la importancia de las recompensas futuras:
 
-                    Modelo del entorno (opcional): permite predecir transiciones 
-                    𝑃
-                    (
-                    𝑠
-                    ′
-                    ∣
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    P(s
-                    ′
-                    ∣s,a) y recompensas; si se tiene, métodos son model-based; si no, model-free.
+                    γ ≈ 0 → el agente solo valora recompensas inmediatas.
 
-                    Flujo/Ejemplo simple (CartPole)
+                    γ ≈ 1 → el agente planifica a largo plazo.
 
-                    Inicial: ambiente reseteado → agente observa estado 
-                    𝑠
-                    0
-                    s
-                    0
-                        ​
+                    Se usa:
 
-                    .
-
-                    Selecciona acción: usa 
-                    𝜋
-                    π (ej. 
-                    𝜖
-                    ϵ-greedy o política neuronal).
-
-                    Ejecuta acción: el entorno devuelve 
-                    𝑠
-                    1
-                    ,
-                    𝑟
-                    1
-                    ,
-                    done
-                    s
-                    1
-                        ​
-
-                    ,r
-                    1
-                        ​
-
-                    ,done.
-
-                    Almacena experiencia (s,a,r,s') opcionalmente en replay buffer.
-
-                    Actualiza política/valor: usando Q-learning, policy gradient, o actor-critic.
-
-                    Repetir hasta terminar episodio; medir retorno total por episodio.
-
-                    Con el tiempo: la política mejora, promedio de recompensa por episodio aumenta; en CartPole, el agente balancea el poste más tiempo.
-
-                    Cómo el agente mejora su comportamiento (ejemplo paso a paso)
-
-                    Q-learning (valor-basado):
-
-                    Actualización incremental: 
-                    𝑄
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    ←
-                    𝑄
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    +
-                    𝛼
-                    (
-                    𝑟
-                    +
-                    𝛾
-                    max
-                    ⁡
-                    𝑎
-                    ′
-                    𝑄
-                    (
-                    𝑠
-                    ′
-                    ,
-                    𝑎
-                    ′
-                    )
-                    −
-                    𝑄
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    )
-                    Q(s,a)←Q(s,a)+α(r+γmax
-                    a
-                    ′
-                        ​
-
-                    Q(s
-                    ′
-                    ,a
-                    ′
-                    )−Q(s,a)).
-
-                    Con suficientes experiencias y exploración, Q converge al 
-                    𝑄
-                    ∗
-                    Q
-                    ∗
-                    .
-
-                    Policy Gradient (política directa):
-
-                    Se maximiza 
-                    𝐽
-                    (
-                    𝜃
-                    )
-                    =
-                    𝐸
-                    𝜋
-                    [
-                    𝐺
-                    ]
-                    J(θ)=E
-                    π
-                        ​
-
-                    [G]; gradiente estimado por muestras:
-
-                    ∇
-                    𝜃
-                    𝐽
-                    ≈
-                    1
-                    𝑁
-                    ∑
-                    𝑡
-                    ∇
-                    𝜃
-                    log
-                    ⁡
-                    𝜋
-                    𝜃
-                    (
-                    𝑎
-                    𝑡
-                    ∣
-                    𝑠
-                    𝑡
-                    )
-                     
-                    𝐺
-                    𝑡
-                    ∇
-                    θ
-                        ​
-
-                    J≈
-                    N
-                    1
-                        ​
-
-                    ∑
+                    Gt=Rt+1+γRt+2+γ2Rt+3+⋯
+                    G
                     t
                         ​
 
-                    ∇
-                    θ
+                    =R
+                    t+1
                         ​
 
-                    logπ
-                    θ
+                    +γR
+                    t+2
                         ​
 
-                    (a
-                    t
+                    +γ
+                    2
+                    R
+                    t+3
                         ​
 
-                    ∣s
-                    t
-                        ​
-
-                    )G
-                    t
-                        ​
-
-                    .
-
-                    Ajustando 
-                    𝜃
-                    θ, la probabilidad de buenas acciones aumenta.
-
-                    Actor-Critic:
-
-                    Actor (política) mejora guiado por la señal del Critic (estimador de valor); uso de ventaja 
-                    𝐴
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    =
-                    𝑄
-                    (
-                    𝑠
-                    ,
-                    𝑎
-                    )
-                    −
-                    𝑉
-                    (
-                    𝑠
-                    )
-                    A(s,a)=Q(s,a)−V(s) para reducir varianza.
+                    +⋯
                                     </p>
             </div>
             </div>
@@ -614,128 +159,94 @@
                         aria-expanded="false" 
                         aria-controls="infoExtra"
                         id="toggleInfoBtn">
-                    Ciclo de retroalimentación en RL y exploración vs explotación
+                    Algoritmos principales del Aprendizaje por Refuerzo
                 </button>
                 <div class="collapse" id="infoExtra">
                     <div class="card card-body extra-text">
-                        Ciclo (Interacción → Recompensa → Actualización)
+                        5.1 Q-Learning
 
-                        Interacción: en 
-                        𝑡
-                        t, observa 
-                        𝑠
-                        𝑡
-                        s
-                        t
-                            ​
+                            Algoritmo fuera de política (off-policy).
 
-                        y elige 
-                        𝑎
-                        𝑡
-                        a
-                        t
-                            ​
+                            Aprende el valor Q(s, a): calidad de tomar una acción en un estado.
 
-                        según 
-                        𝜋
-                        π.
+                            Actualiza hacia la mejor acción futura posible.
 
-                        Recompensa y transición: recibe 
-                        𝑟
-                        𝑡
-                        +
-                        1
-                        r
-                        t+1
-                            ​
+                            Aplicaciones:
 
-                        , observa 
-                        𝑠
-                        𝑡
-                        +
-                        1
-                        s
-                        t+1
-                            ​
+                            Juegos, robots simples, problemas de control.
 
-                        .
+                            5.2 SARSA
 
-                        Almacenamiento: guardar experiencia (s_t,a_t,r_{t+1},s_{t+1}).
+                            Algoritmo en política (on-policy).
 
-                        Actualización: usar la experiencia para actualizar la función de valor o la política (dependiendo del método).
+                            Aprende la calidad Q(s,a) usando la acción que realmente tomó la política actual.
 
-                        Value-based: actualizar Q mediante Bellman.
+                            Diferencia clave:
 
-                        Policy-based: estimar gradiente y aplicar descenso/ascenso.
+                            Q-Learning es más agresivo.
 
-                        Actor-critic: actualizar critic (reduce bias) y actor (mejora política).
+                            SARSA es más seguro/estable porque actualiza según la política real, no la ideal.
 
-                        Repetición: cambios en 
-                        𝜋
-                        π afectan futuras acciones → nuevo comportamiento → nuevas recompensas → nuevo aprendizaje.
+                            5.3 Deep Q-Network (DQN)
 
-                        Equilibrio Exploración ↔ Explotación
+                            Extiende Q-Learning con redes neuronales profundas.
 
-                        Problema: explorar para descubrir mejores acciones vs explotar la mejor acción conocida.
+                            Permite trabajar con espacios de estado enormes (ejemplo: imágenes).
 
-                        Estrategias comunes
+                            Introduce dos técnicas esenciales:
 
-                        ε-greedy: con prob. ε elegir acción aleatoria; con prob. 1−ε elegir greedy. Decaimiento de ε con el tiempo.
+                            Experience Replay (memoria de experiencias)
 
-                        Softmax / Boltzmann: probabilidades proporcionales a 
-                        𝑒
-                        𝑄
-                        (
-                        𝑠
-                        ,
-                        𝑎
-                        )
-                        /
-                        𝜏
-                        e
-                        Q(s,a)/τ
-                        ; temperatura 
-                        𝜏
-                        τ controla exploración.
+                            Redes Q objetivo (Target Network) para estabilidad
 
-                        Upper Confidence Bound (UCB): en bandits, selecciona acción que maximiza 
-                        𝜇
-                        ^
-                        𝑎
-                        +
-                        𝑐
-                        ln
-                        ⁡
-                        𝑡
-                        𝑁
-                        𝑎
-                        μ
-                        ^
-                            ​
+                            Aplicaciones:
 
-                        a
-                            ​
+                            Videojuegos (ex: Atari, Mario AI).
 
-                        +c
-                        N
-                        a
-                            ​
+                            Control robótico realista.
 
-                        lnt
-                            ​
+                            Optimización industrial.
+                            Buenas prácticas en Aprendizaje por Refuerzo
+                            1. Estabilidad del aprendizaje
 
-                            ​
+                            Usar normalización de recompensas.
 
-                        .
+                            Mantener redes objetivo (en DQN).
 
-                        Thompson Sampling: muestreo posterior en modelos bayesianos.
+                            Revisar que el entorno no sea demasiado estocástico.
 
-                        Entropy bonus: en policy gradient se agrega término que maximiza entropía (evita colapso prematuro).
+                            2. Tasa de exploración (ε en ε-greedy)
 
-                        Intrinsic motivation / curiosity: recompensa interna por visitar estados poco frecuentes.
+                            Empezar alta (ε ≈ 1).
 
-                        Práctica: empezar con más exploración (alto ε) y reducir progresivamente; o mantener algo de exploración constante si el entorno cambia.
-                </div>
+                            Reducir gradualmente para favorecer la explotación.
+
+                            Evitar reducir demasiado rápido.
+
+                            3. Manejo de recompensas
+
+                            Evitar recompensas demasiado grandes o escasas.
+
+                            Crear señales intermedias que guíen al agente.
+
+                            Penalizar acciones peligrosas o inútiles.
+
+                            4. Convergencia
+
+                            Usar tasas de aprendizaje pequeñas.
+
+                            Entrenar por suficientes episodios.
+
+                            En entornos continuos, preferir métodos actor-critic.
+
+                            5. Generalización
+
+                            Cambiar ligeramente las condiciones del entorno durante el entrenamiento.
+
+                            Usar aleatorización (domain randomization) para evitar overfitting.
+
+                            Validar el agente en entornos nuevos.
+                                            </div>
             </div>
         </div>
     </div>
