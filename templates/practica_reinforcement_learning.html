@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica de RL</title>
+
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Práctica: Agente de Aprendizaje por Refuerzo</h2>
+
+    <!-- FORMULARIO -->
+    <form method="post" class="mb-5">
+
+        <label class="form-label">Episodios:</label>
+        <input type="number" name="episodes" value="200" class="form-control">
+
+        <label class="form-label mt-3">Tasa de aprendizaje (alpha):</label>
+        <input type="number" name="alpha" value="0.1" step="0.01" min="0" max="1" class="form-control">
+
+        <label class="form-label mt-3">Descuento (gamma):</label>
+        <input type="number" name="gamma" value="0.9" step="0.01" min="0" max="1" class="form-control">
+
+        <label class="form-label mt-3">Exploración (epsilon):</label>
+        <input type="number" name="epsilon" value="0.2" step="0.01" min="0" max="1" class="form-control">
+
+        <button type="submit" class="btn btn-primary mt-4">Entrenar agente</button>
+    </form>
+
+    <hr>
+
+    <!-- GRÁFICA RECOMPENSAS -->
+    {% if rewards_plot %}
+    <h3 class="mt-4">Gráfica de recompensas por episodio</h3>
+    <img src="data:image/png;base64,{{ rewards_plot }}" style="width: 600px;">
+    {% endif %}
+
+    <!-- POLÍTICA -->
+    {% if policy %}
+    <h3 class="mt-5">Política aprendida:</h3>
+    <pre class="border p-3 bg-white">{{ policy }}</pre>
+    {% endif %}
+
+    <!-- Q-TABLE -->
+    {% if qtable %}
+    <h3 class="mt-5">Q-Table Final:</h3>
+    <pre class="border p-3 bg-white">{{ qtable }}</pre>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

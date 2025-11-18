@@ -1,8 +1,16 @@
 from flask import Flask, render_template, request
-import pandas as pd
 from LinearRegression import calculateEnergy, generate_energy_plot
 from Churn_Logistic import load_and_prepare, train_model, evaluate, predict_label
+# añadir plot_trajectory y funciones auxiliares
+from reinforcement_agent import GridWorld, QLearningAgent, plot_rewards, plot_policy, create_trajectory_gif, plot_trajectory
+import os
 import joblib
+import pandas as pd
+
+# Variable global
+trained_rewards = None
+trained_agent = None
+
 
 # Cargar modelo y métricas de fraude
 fraude_data = joblib.load("fraude_model.pkl")
@@ -148,9 +156,7 @@ def A12_ReinforcementLearning():
 def conceptos_reinforcement_learning():
     return render_template('conceptos_reinforcement_learning.html')
 
-@app.route('/practica_reinforcement_learning')
-def practica_reinforcement_learning():
-    return render_template('practica_reinforcement_learning.html')
+    
 
 # ----------------------------
 # A7_practica - Detección de fraude
@@ -203,6 +209,58 @@ def A7_practica():
         probability=probability,
         interpretation=interpretation,
         fraude_accuracy=round(fraude_accuracy, 4)
+    )
+    
+@app.route('/practica_reinforcement_learning', methods=['GET', 'POST'])
+def practica_reinforcement_learning():
+    rewards_plot = None
+    policy_text = None
+    qtable_text = None
+    message = None
+
+    if request.method == 'POST':
+
+        # Leer parámetros
+        episodes = int(request.form.get('episodes', 200))
+        alpha = float(request.form.get('alpha', 0.1))
+        gamma = float(request.form.get('gamma', 0.9))
+        epsilon = float(request.form.get('epsilon', 0.2))
+        grid_size = 4 
+
+        # Crear entorno
+        env = GridWorld(size=grid_size)
+
+        # Crear agente
+        agent = QLearningAgent(env, alpha=alpha, gamma=gamma, epsilon=epsilon)
+
+        # Entrenamiento
+        rewards = agent.train(episodes=episodes)
+
+        # ---------- 1) GRAFICA DE RECOMPENSAS ----------
+        try:
+            rewards_plot = plot_rewards(rewards)
+        except Exception as e:
+            message = f"Error generando gráfica: {e}"
+
+        # ---------- 2) Q-TABLE COMO TEXTO ----------
+        try:
+            qtable_text = str(agent.q_table)
+        except:
+            qtable_text = "No se pudo generar la Q-Table."
+
+        # ---------- 3) POLÍTICA APRENDIDA COMO TEXTO ----------
+        try:
+            policy_matrix = agent.get_policy()  
+            policy_text = str(policy_matrix)
+        except:
+            policy_text = "No se pudo generar la política aprendida."
+
+    return render_template(
+        'practica_reinforcement_learning.html',
+        rewards_plot=rewards_plot,
+        policy=policy_text,
+        qtable=qtable_text,
+        message=message
     )
 
 if __name__ == '__main__':
