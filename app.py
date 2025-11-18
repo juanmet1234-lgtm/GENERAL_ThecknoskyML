@@ -211,89 +211,57 @@ def A7_practica():
         fraude_accuracy=round(fraude_accuracy, 4)
     )
     
-    
 @app.route('/practica_reinforcement_learning', methods=['GET', 'POST'])
 def practica_reinforcement_learning():
-    global trained_rewards, trained_agent
-
-    rewards_plot = None       # base64 PNG returned by plot_rewards
-    qtable_path = None        # ruta en static/models/qtable.npy
-    policy_img = None         # ruta relativa en static/outputs/policy.png
-    traj_gif = None           # ruta relativa en static/outputs/trajectory.gif
-    traj_img = None           # base64 PNG de la trayectoria (plot_trajectory)
+    rewards_plot = None
+    policy_text = None
+    qtable_text = None
     message = None
 
     if request.method == 'POST':
-        # parámetros (asegura que el formulario tenga estos campos)
+
+        # Leer parámetros
         episodes = int(request.form.get('episodes', 200))
         alpha = float(request.form.get('alpha', 0.1))
-        gamma = float(request.form.get('gamma', 0.99))
-        epsilon = float(request.form.get('epsilon', 0.1))
-        grid_size = int(request.form.get('grid_size', 4))
+        gamma = float(request.form.get('gamma', 0.9))
+        epsilon = float(request.form.get('epsilon', 0.2))
+        grid_size = 4 
 
-        # crear entorno/agente y entrenar
+        # Crear entorno
         env = GridWorld(size=grid_size)
+
+        # Crear agente
         agent = QLearningAgent(env, alpha=alpha, gamma=gamma, epsilon=epsilon)
+
+        # Entrenamiento
         rewards = agent.train(episodes=episodes)
 
-        trained_rewards = rewards
-        trained_agent = agent
-
-        # guardar Q-table
-        import os
-        models_dir = os.path.join(app.static_folder or "static", "models")
-        os.makedirs(models_dir, exist_ok=True)
-        qtable_path = os.path.join(models_dir, "qtable.npy")
-        agent.save_qtable(qtable_path)
-        # convertir a ruta relativa para templates: 'models/qtable.npy'
-        qtable_path = os.path.join("models", "qtable.npy")
-
-        # outputs dir (static)
-        outputs_dir = os.path.join(app.static_folder or "static", "outputs")
-        os.makedirs(outputs_dir, exist_ok=True)
-
-        # gráfica de recompensas (base64)
+        # ---------- 1) GRAFICA DE RECOMPENSAS ----------
         try:
             rewards_plot = plot_rewards(rewards)
         except Exception as e:
-            message = f"Error al generar gráfica de recompensas: {e}"
+            message = f"Error generando gráfica: {e}"
 
-        # imagen de la política (archivo PNG en static/outputs)
+        # ---------- 2) Q-TABLE COMO TEXTO ----------
         try:
-            policy_out = os.path.join(outputs_dir, "policy.png")
-            plot_policy(env, agent, policy_out)
-            policy_img = os.path.join("outputs", "policy.png")
-        except Exception as e:
-            message = (message or "") + f" Error al generar policy.png: {e}"
-            policy_img = None
+            qtable_text = str(agent.q_table)
+        except:
+            qtable_text = "No se pudo generar la Q-Table."
 
-        # trayectoria greedy (lista de estados) y representación
+        # ---------- 3) POLÍTICA APRENDIDA COMO TEXTO ----------
         try:
-            traj = agent.simulate_policy(env, start_state=getattr(env, "start_state", None), max_steps=100)
-            # PNG base64 con la trayectoria (para incrustar inline)
-            traj_img = plot_trajectory(traj, size=grid_size)
-            # además generar GIF en static/outputs (opcional)
-            try:
-                gif_out = os.path.join(outputs_dir, "trajectory.gif")
-                create_trajectory_gif(env, traj, gif_out, fps=4)
-                traj_gif = os.path.join("outputs", "trajectory.gif")
-            except Exception:
-                traj_gif = None
-        except Exception as e:
-            message = (message or "") + f" Error al simular/generar trayectoria: {e}"
-            traj_img = None
-            traj_gif = None
+            policy_matrix = agent.get_policy()  
+            policy_text = str(policy_matrix)
+        except:
+            policy_text = "No se pudo generar la política aprendida."
 
     return render_template(
         'practica_reinforcement_learning.html',
         rewards_plot=rewards_plot,
-        qtable_path=qtable_path,
-        policy_img=policy_img,
-        traj_gif=traj_gif,
-        traj_img=traj_img,
+        policy=policy_text,
+        qtable=qtable_text,
         message=message
     )
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
